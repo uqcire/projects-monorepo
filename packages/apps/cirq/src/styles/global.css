@@ -1,68 +1,107 @@
 /*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
+  Cirq App Global Styles
+  使用共享样式系统和联系人主题
 */
-@import "tailwindcss";
 
+/* 导入共享样式系统 */
+@import '@monorepo/styles/base';
+@import '@monorepo/styles/themes';
+@import '@monorepo/styles/fonts';
+@import '@monorepo/styles/components';
+@import '@monorepo/styles/utilities';
+
+/* DaisyUI 插件配置 */
 @plugin "daisyui" {
-  themes: nord --default;
+  themes: ["cirq"];
+  theme: "cirq" --default;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* 项目特定样式覆盖 */
+:root {
+  /* 联系人管理特色配色 */
+  --contact-primary: #8b5cf6;
+  --contact-secondary: #a855f7;
+  --contact-accent: #ec4899;
+
+  /* 状态指示器颜色 */
+  --status-online: #10b981;
+  --status-offline: #6b7280;
+  --status-busy: #f59e0b;
+
+  /* 特殊阴影效果 */
+  --shadow-contact: 0 4px 8px rgba(139, 92, 246, 0.2);
+  --shadow-timeline: 0 2px 4px rgba(168, 85, 247, 0.15);
 }
 
-* {
-  margin: 0;
+/* 联系人卡片样式 */
+.contact-card {
+  border-left: 3px solid var(--contact-primary);
+  transition: all var(--transition-base);
+  position: relative;
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+.contact-card:hover {
+  transform: translateY(-1px);
+  box-shadow: var(--shadow-contact);
+  border-left-color: var(--contact-accent);
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+/* 状态指示器 */
+.status-indicator {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  border: 2px solid white;
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
+.status-indicator.online {
+  background-color: var(--status-online);
 }
 
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
+.status-indicator.offline {
+  background-color: var(--status-offline);
 }
 
-p {
-  text-wrap: pretty;
+.status-indicator.busy {
+  background-color: var(--status-busy);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
+/* 时间线样式 */
+.timeline-item {
+  border-left: 2px solid var(--contact-secondary);
+  padding-left: 1rem;
+  position: relative;
 }
 
-#root,
-#__next {
-  isolation: isolate;
+.timeline-item::before {
+  content: '';
+  width: 8px;
+  height: 8px;
+  background-color: var(--contact-primary);
+  border-radius: 50%;
+  position: absolute;
+  left: -5px;
+  top: 0.5rem;
+}
+
+/* 提醒通知样式 */
+.reminder-notification {
+  background: linear-gradient(135deg, var(--contact-primary), var(--contact-secondary));
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-timeline);
+}
+
+/* 响应式增强 */
+@media (max-width: 768px) {
+  .contact-card {
+    margin-bottom: 0.75rem;
+  }
+
+  .timeline-item {
+    padding-left: 0.75rem;
+  }
 }

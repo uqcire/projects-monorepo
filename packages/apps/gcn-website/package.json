@@ -10,6 +10,7 @@
     "prepare": "husky install"
   },
   "dependencies": {
+    "@monorepo/styles": "workspace:*",
     "@monorepo/vite-config": "workspace:^",
     "@shared/tailwind-config": "workspace:*",
     "pinia": "^3.0.3",

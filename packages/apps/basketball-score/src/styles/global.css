@@ -1,68 +1,52 @@
 /*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
+  Basketball Score App Global Styles
+  使用共享样式系统和篮球主题
 */
-@import "tailwindcss";
 
+/* 导入共享样式系统 */
+@import '@monorepo/styles/base';
+@import '@monorepo/styles/themes';
+@import '@monorepo/styles/fonts';
+@import '@monorepo/styles/components';
+@import '@monorepo/styles/utilities';
+
+/* DaisyUI 插件配置 */
 @plugin "daisyui" {
-  themes: winter --default;
+  themes: ["basketball"];
+  theme: "basketball" --default;
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* 项目特定样式覆盖 */
+:root {
+  /* 篮球特色配色增强 */
+  --basketball-court: #8b4513;
+  --basketball-line: #ffffff;
+  --basketball-hoop: #ff6b35;
+
+  /* 专用阴影 */
+  --shadow-basketball: 0 4px 8px rgba(234, 88, 12, 0.3);
 }
 
-* {
-  margin: 0;
+/* 篮球主题的特定组件样式 */
+.stat-card {
+  border-left: 4px solid var(--color-primary);
+  transition: all var(--transition-base);
 }
 
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+.stat-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-basketball);
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
+.score-display {
+  font-weight: 800;
+  color: var(--color-primary);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-p {
-  text-wrap: pretty;
-}
-
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-#root,
-#__next {
-  isolation: isolate;
+/* 响应式断点增强 */
+@media (max-width: 768px) {
+  .stat-card {
+    margin-bottom: 1rem;
+  }
 }

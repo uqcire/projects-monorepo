@@ -14,6 +14,7 @@
     "cz": "czg"
   },
   "dependencies": {
+    "@monorepo/styles": "workspace:*",
     "@monorepo/vite-config": "workspace:^",
     "@shared/tailwind-config": "workspace:*",
     "@supabase/supabase-js": "^2.50.3",

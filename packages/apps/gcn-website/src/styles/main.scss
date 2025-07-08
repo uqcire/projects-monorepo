@@ -1,16 +1,70 @@
-// tailwind
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/*
+  GCN Website Main Styles
+  使用共享样式系统和企业配色
+*/
 
-// RESET
-@import 'reset';
+// 导入共享样式系统
+@import '@monorepo/styles/base';
+@import '@monorepo/styles/themes';
+@import '@monorepo/styles/fonts';
+@import '@monorepo/styles/components';
+@import '@monorepo/styles/utilities';
 
-// BASE & LAYOUT
+// 保留原有的模块化样式（如需要）
 @import 'elements';
 @import 'layouts';
-
-// TYPOGRAPHYS
 @import 'typographys';
 
-// colors
+// GCN 特定样式覆盖
+:root[data-project="gcn"] {
+  // 企业字体配置
+  --font-heading: 'Inter', var(--font-sans);
+  --font-body: var(--font-sans);
+
+  // 企业品牌色彩增强
+  --gcn-blue: #1e40af;
+  --gcn-gray: #334155;
+  --gcn-teal: #0f766e;
+  --gcn-gold: #d97706;
+
+  // 特殊阴影
+  --shadow-corporate: 0 4px 12px rgba(30, 64, 175, 0.2);
+  --shadow-hover-corporate: 0 8px 24px rgba(30, 64, 175, 0.3);
+}
+
+// 企业特定组件样式
+.corporate-card {
+  background: linear-gradient(135deg, var(--gcn-blue), var(--gcn-gray));
+  color: white;
+  border-radius: var(--radius-lg);
+  padding: 2rem;
+  box-shadow: var(--shadow-corporate);
+  transition: all var(--transition-base);
+}
+
+.corporate-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-hover-corporate);
+}
+
+.service-feature {
+  border-left: 4px solid var(--gcn-teal);
+  padding-left: 1rem;
+  transition: all var(--transition-fast);
+}
+
+.service-feature:hover {
+  border-left-color: var(--gcn-gold);
+  transform: translateX(4px);
+}
+
+// 确保Naive UI兼容性
+.n-card {
+  border-radius: var(--radius-lg) !important;
+  box-shadow: var(--shadow-md) !important;
+}
+
+.n-button {
+  border-radius: var(--radius-md) !important;
+  transition: all var(--transition-fast) !important;
+}

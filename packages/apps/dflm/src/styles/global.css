@@ -1,11 +1,19 @@
 /*
-  Josh's Custom CSS Reset
-  https://www.joshwcomeau.com/css/custom-css-reset/
+  DFLM Website Global Styles
+  使用共享样式系统和品牌字体
 */
-@import url("https://use.typekit.net/hqt7snn.css");
-@import url("https://use.typekit.net/hqt7snn.css");
-@import "tailwindcss";
 
+/* 导入品牌字体 */
+@import url("https://use.typekit.net/hqt7snn.css");
+
+/* 导入共享样式系统 */
+@import '@monorepo/styles/base';
+@import '@monorepo/styles/themes';
+@import '@monorepo/styles/fonts';
+@import '@monorepo/styles/components';
+@import '@monorepo/styles/utilities';
+
+/* DaisyUI 插件配置 */
 @plugin "daisyui";
 
 @plugin "daisyui/theme" {
@@ -43,74 +51,86 @@
   --noise: 1;
 }
 
+/* 品牌字体配置 */
 @theme {
-  --font-pilar: "pilar-pro", sans-serif;
-  --font-basic: "basic-sans", sans-serif;
+  --font-pilar: "pilar-pro", var(--font-sans);
+  --font-basic: "basic-sans", var(--font-sans);
 }
 
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
+/* 项目特定样式覆盖 */
+:root[data-project="dflm"] {
+  /* 覆盖全局字体配置 */
+  --font-display: var(--font-pilar);
+  --font-brand: var(--font-pilar);
+  --font-heading: var(--font-pilar);
+  --font-body: var(--font-basic);
+
+  /* DFLM 品牌增强色彩 */
+  --brand-gold: #FFD400;
+  --brand-orange: #ed6c2b;
+  --brand-green: #059669;
+  --brand-earth: #8b4513;
+
+  /* 特殊效果 */
+  --shadow-brand: 0 4px 12px rgba(255, 212, 0, 0.3);
+  --gradient-brand: linear-gradient(135deg, var(--brand-gold), var(--brand-orange));
 }
 
-* {
-  margin: 0;
+/* 品牌特定样式 */
+.brand-heading {
+  font-family: var(--font-pilar);
+  font-weight: 700;
+  color: var(--brand-gold);
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-body,
-html {
-  margin: 0;
-  padding: 0;
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
+.brand-card {
+  background: var(--gradient-brand);
+  color: white;
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-brand);
+  transition: all var(--transition-base);
+}
+
+.brand-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 24px rgba(255, 212, 0, 0.4);
+}
+
+.product-image {
+  border-radius: var(--radius-box);
+  overflow: hidden;
+  box-shadow: var(--shadow-lg);
+  transition: all var(--transition-base);
+}
+
+.product-image:hover {
+  transform: scale(1.02);
+  box-shadow: var(--shadow-brand);
+}
+
+/* 确保正确的字体应用 */
+body {
+  font-family: var(--font-body);
   color: #2A2A2A;
 }
 
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
 h1,
 h2,
 h3,
 h4,
 h5,
 h6 {
-  overflow-wrap: break-word;
+  font-family: var(--font-heading);
 }
 
-p {
-  text-wrap: pretty;
-}
+/* 响应式增强 */
+@media (max-width: 768px) {
+  .brand-card {
+    margin-bottom: 1rem;
+  }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  text-wrap: balance;
-}
-
-#root,
-#__next {
-  isolation: isolate;
-}
-
-body {
-  @apply m-0 p-0;
+  .product-image {
+    margin-bottom: 1rem;
+  }
 }

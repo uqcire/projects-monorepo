@@ -57,6 +57,7 @@ export const projectSpecificVersions = {
   // 共享包 (monorepo 内部)
   '@shared/tailwind-config': 'workspace:*',
   '@shared/dependency-versions': 'workspace:*',
+  '@monorepo/styles': 'workspace:*',
 
   // Supabase (用于 basketball-score 和 cirq)
   '@supabase/supabase-js': '^2.50.3',

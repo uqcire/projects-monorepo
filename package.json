@@ -9,6 +9,7 @@
     "deps:check": "node scripts/check-dependencies.js",
     "deps:update": "pnpm update --recursive",
     "tailwind:test": "node scripts/test-tailwind-themes.js",
+    "styles:test": "node scripts/test-styles-system.js",
     "dev:test": "powershell -ExecutionPolicy Bypass -File scripts/test-dev-environment.ps1",
     "dev:dflm": "pnpm --filter dflm-website dev",
     "dev:basketball": "pnpm --filter project--basketball-stats-app dev",
