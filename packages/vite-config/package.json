@@ -1,0 +1,35 @@
+{
+  "name": "@monorepo/vite-config",
+  "type": "module",
+  "version": "1.0.0",
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "index.js",
+  "peerDependencies": {
+    "@tailwindcss/vite": "^4.0.0",
+    "@vitejs/plugin-vue": "^5.0.0",
+    "vite": "^6.0.0"
+  },
+  "peerDependenciesMeta": {
+    "unplugin-auto-import": {
+      "optional": true
+    },
+    "unplugin-icons": {
+      "optional": true
+    },
+    "unplugin-vue-components": {
+      "optional": true
+    },
+    "vite-plugin-vue-devtools": {
+      "optional": true
+    },
+    "vite-plugin-vue-setup-extend": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "rollup-plugin-visualizer": "^5.14.0",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}

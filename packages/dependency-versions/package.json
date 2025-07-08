@@ -1,0 +1,17 @@
+{
+  "name": "@monorepo/dependency-versions",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Centralized dependency version management for the monorepo",
+  "author": "Monorepo Team",
+  "license": "MIT",
+  "keywords": [
+    "monorepo",
+    "dependencies",
+    "versions"
+  ],
+  "exports": {
+    ".": "./index.js"
+  },
+  "main": "index.js"
+}

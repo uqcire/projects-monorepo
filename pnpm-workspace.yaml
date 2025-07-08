@@ -1,0 +1,7 @@
+packages:
+  - "basketball-score"
+  - "cirq"
+  - "dflm"
+  - "gcn-website"
+  - "site-template"
+  - "packages/*"

@@ -1,0 +1,36 @@
+{
+  "name": "projects-monorepo",
+  "type": "module",
+  "private": true,
+  "scripts": {
+    "dev": "pnpm --filter \"./*\" --parallel dev",
+    "build": "pnpm --filter \"./*\" build",
+    "lint": "pnpm --filter \"./*\" lint",
+    "deps:check": "node scripts/check-dependencies.js",
+    "deps:update": "pnpm update --recursive"
+  },
+  "devDependencies": {
+    "@antfu/eslint-config": "^4.16.2",
+    "@commitlint/cli": "^19.8.1",
+    "@commitlint/config-conventional": "^19.8.1",
+    "@tailwindcss/vite": "^4.1.11",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-git": "^1.11.2",
+    "czg": "^1.11.2",
+    "daisyui": "^5.0.46",
+    "eslint": "^9.30.1",
+    "eslint-plugin-format": "^1.0.1",
+    "glob": "^11.0.3",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "prettier": "^2.8.8",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tailwindcss": "^4.1.11",
+    "typescript": "^4.9.5",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-vue-components": "^28.8.0",
+    "vite": "^6.3.5",
+    "vite-plugin-compression": "^0.5.1"
+  }
+}
