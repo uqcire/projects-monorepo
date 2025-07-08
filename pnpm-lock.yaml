@@ -80,6 +80,9 @@ importers:
       '@monorepo/vite-config':
         specifier: workspace:^
         version: link:../packages/vite-config
+      '@shared/tailwind-config':
+        specifier: workspace:*
+        version: link:../packages/tailwind-config
       '@supabase/supabase-js':
         specifier: ^2.50.3
         version: 2.50.3
@@ -153,6 +156,9 @@ importers:
       '@monorepo/vite-config':
         specifier: workspace:^
         version: link:../packages/vite-config
+      '@shared/tailwind-config':
+        specifier: workspace:*
+        version: link:../packages/tailwind-config
       '@supabase/supabase-js':
         specifier: ^2.50.3
         version: 2.50.3
@@ -229,6 +235,9 @@ importers:
       '@monorepo/vite-config':
         specifier: workspace:^
         version: link:../packages/vite-config
+      '@shared/tailwind-config':
+        specifier: workspace:*
+        version: link:../packages/tailwind-config
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -302,6 +311,9 @@ importers:
       '@monorepo/vite-config':
         specifier: workspace:^
         version: link:../packages/vite-config
+      '@shared/tailwind-config':
+        specifier: workspace:*
+        version: link:../packages/tailwind-config
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
@@ -390,6 +402,18 @@ importers:
 
   packages/dependency-versions: {}
 
+  packages/tailwind-config:
+    dependencies:
+      daisyui:
+        specifier: ^5.0.46
+        version: 5.0.46
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
+      tailwindcss:
+        specifier: ^4.1.11
+        version: 4.1.11
+
   packages/vite-config:
     dependencies:
       '@tailwindcss/vite':
@@ -413,6 +437,9 @@ importers:
       '@monorepo/vite-config':
         specifier: workspace:^
         version: link:../packages/vite-config
+      '@shared/tailwind-config':
+        specifier: workspace:*
+        version: link:../packages/tailwind-config
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -2325,6 +2352,10 @@ packages:
 
   deep-is@0.1.4:
     resolution: {integrity: sha512-oIPzksmTg4/MriiaYGO+okXDT7ztn/w3Eptv/+gSIdMdKsJo0u4CfYNFJPy+4SKMuCqGw2wxnA+URMg3t8a/bQ==}
+
+  deepmerge@4.3.1:
+    resolution: {integrity: sha512-3sUqbMEc77XqpdNO7FRyRog+eW3ph+GYCbj+rK+uYyRMuwsVy0rMiVtPn+QJlKFvWP/1PYpapqYn0Me2knFn+A==}
+    engines: {node: '>=0.10.0'}
 
   default-browser-id@5.0.0:
     resolution: {integrity: sha512-A6p/pu/6fyBcA1TRz/GqWYPViplrftcW2gZC9q79ngNCKAeR/X3gcEdXQHl4KNXV+3wgIJ1CPkJQ3IHM6lcsyA==}
@@ -6027,7 +6058,7 @@ snapshots:
       '@commitlint/types': 19.8.1
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@4.9.5))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -7570,10 +7601,10 @@ snapshots:
       jiti: 2.4.2
       typescript: 4.9.5
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@4.9.5))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
     dependencies:
       '@types/node': 24.0.10
-      cosmiconfig: 9.0.0(typescript@4.9.5)
+      cosmiconfig: 9.0.0(typescript@5.8.3)
       jiti: 2.4.2
       typescript: 5.8.3
     optional: true
@@ -7714,6 +7745,8 @@ snapshots:
   deep-extend@0.6.0: {}
 
   deep-is@0.1.4: {}
+
+  deepmerge@4.3.1: {}
 
   default-browser-id@5.0.0: {}
 

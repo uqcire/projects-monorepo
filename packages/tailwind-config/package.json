@@ -1,0 +1,33 @@
+{
+  "name": "@shared/tailwind-config",
+  "version": "1.0.0",
+  "description": "统一的 Tailwind CSS 配置包，支持项目特定扩展",
+  "author": "Web Projects Team",
+  "exports": {
+    ".": "./index.js",
+    "./presets": "./presets/index.js",
+    "./themes": "./themes/index.js"
+  },
+  "files": [
+    "README.md",
+    "index.js",
+    "presets/",
+    "themes/"
+  ],
+  "keywords": [
+    "config",
+    "daisyui",
+    "shared",
+    "tailwindcss",
+    "themes"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "peerDependencies": {
+    "daisyui": "^5.0.46",
+    "tailwindcss": "^4.1.11"
+  },
+  "dependencies": {
+    "deepmerge": "^4.3.1"
+  }
+}
