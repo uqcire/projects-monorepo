@@ -2,10 +2,11 @@
 
 > 一个现代化的 Vue.js 应用程序 Monorepo，包含多个独立的前端项目和统一的开发环境配置。
 
-[![CI/CD](https://github.com/你的用户名/项目名/workflows/CI/badge.svg)](https://github.com/你的用户名/项目名/actions)
+[![CI/CD](https://github.com/uqcire/projects-monorepo/workflows/CI/badge.svg)](https://github.com/uqcire/projects-monorepo/actions)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Node.js Version](https://img.shields.io/badge/node-%3E%3D20.11.0-brightgreen)](https://nodejs.org/)
 [![pnpm Version](https://img.shields.io/badge/pnpm-10.12.4-blue)](https://pnpm.io/)
+[![Dev Environment](https://img.shields.io/badge/dev--environment-tested-green)](./dev-environment-report.md)
 
 ## 📋 项目概览
 
@@ -27,6 +28,8 @@
 | -------------------------- | -------------------- | ---------- |
 | 📦 **Dependency Versions** | 统一的依赖版本管理   | 1.0.0      |
 | ⚙️ **Vite Config**         | 共享的 Vite 构建配置 | 1.0.0      |
+| 🎨 **Tailwind Config**     | 共享的样式配置和主题 | 1.0.0      |
+| 🧪 **Dev Environment**     | 开发环境测试套件     | 1.0.0      |
 | 🎨 **ESLint Config**       | 统一的代码规范配置   | 继承根配置 |
 
 ## 🚀 快速开始
@@ -41,8 +44,8 @@
 
 ```bash
 # 1. 克隆仓库
-git clone https://github.com/你的用户名/项目名.git
-cd 项目名
+git clone https://github.com/uqcire/projects-monorepo.git
+cd projects-monorepo
 
 # 2. 安装依赖
 pnpm install
@@ -54,23 +57,43 @@ pnpm run deps:check
 pnpm run dev
 ```
 
+### 开发环境测试
+
+在开始开发之前，建议运行开发环境测试来确保所有配置正确：
+
+```bash
+# 运行完整的开发环境测试套件
+pnpm run dev:test
+
+# 测试 Tailwind CSS 配置和主题
+pnpm run tailwind:test
+```
+
+**测试覆盖范围：**
+
+- ✅ 配置文件完整性检查 (100%)
+- ✅ 依赖版本一致性验证 (100%)
+- ✅ 构建功能测试 (80%)
+- ✅ 开发服务器启动 (100%)
+- ✅ 热重载功能 (100%)
+- ✅ 共享配置使用 (100%)
+
 ### 单独启动项目
 
 ```bash
-# 启动篮球统计应用
-pnpm --filter "basketball-score" dev
+# 🚀 使用简化命令启动项目
+pnpm run dev:dflm                # DFLM Website
+pnpm run dev:basketball          # Basketball Score
+pnpm run dev:cirq                # Cirq
+pnpm run dev:gcn                 # GCN Website
+pnpm run dev:template            # Site Template
 
-# 启动联系人管理系统
-pnpm --filter "cirq" dev
-
-# 启动好蒜道官网
+# 📦 或使用完整的 filter 命令
 pnpm --filter "dflm-website" dev
-
-# 启动 GCN 官网
+pnpm --filter "project--basketball-stats-app" dev
+pnpm --filter "Cirq" dev
 pnpm --filter "gcn-website" dev
-
-# 启动项目模板
-pnpm --filter "site-template" dev
+pnpm --filter "project-development-environment--daysi-ui" dev
 ```
 
 ## 📁 项目结构
@@ -106,14 +129,18 @@ pnpm --filter "site-template" dev
 │   └── src/                    # 标准 Vue 项目结构
 ├── 📦 packages/                 # 共享包
 │   ├── dependency-versions/    # 依赖版本管理
+│   ├── tailwind-config/       # Tailwind 配置包
 │   └── vite-config/           # Vite 配置包
 ├── 🛠️ scripts/                  # 工具脚本
-│   └── check-dependencies.js  # 依赖检查脚本
+│   ├── check-dependencies.js  # 依赖检查脚本
+│   └── test-dev-environment.ps1 # 开发环境测试脚本
 ├── .github/                    # GitHub Actions
 ├── .nvmrc                      # Node.js 版本
-├── pnpm-workspace.yaml         # Workspace 配置
-├── eslint.config.js           # ESLint 配置
-└── package.json               # 根配置文件
+├── dev-environment-report.md   # 开发环境测试报告
+├── dev-test-results.json      # 测试结果数据
+├── pnpm-workspace.yaml        # Workspace 配置
+├── eslint.config.js          # ESLint 配置
+└── package.json              # 根配置文件
 ```
 
 ## 🔧 开发工具和脚本
@@ -129,6 +156,17 @@ pnpm run deps:update             # 更新所有依赖到最新版本
 pnpm run dev                     # 并行启动所有项目开发服务器
 pnpm run build                   # 构建所有项目
 pnpm run preview                 # 预览构建结果
+
+# 🧪 开发环境测试
+pnpm run dev:test                # 运行开发环境完整测试套件
+pnpm run tailwind:test           # 测试 Tailwind 配置和主题
+
+# 🚀 单项目开发服务器
+pnpm run dev:dflm                # 启动 DFLM Website
+pnpm run dev:basketball          # 启动 Basketball Score
+pnpm run dev:cirq                # 启动 Cirq
+pnpm run dev:gcn                 # 启动 GCN Website
+pnpm run dev:template            # 启动 Site Template
 
 # 🧹 代码质量
 pnpm run lint                    # 检查所有项目的代码规范
@@ -353,6 +391,8 @@ pnpm --filter "项目名" preview
 - 🗜️ **资源压缩**: Gzip/Brotli 压缩
 - 🖼️ **图片优化**: WebP 格式 + 懒加载
 - ⚡ **缓存策略**: 智能缓存配置
+- 🔥 **开发体验**: 热重载 + 快速构建
+- 🌐 **端口管理**: 自动端口分配避免冲突
 
 ## 📜 许可证
 
@@ -360,15 +400,15 @@ pnpm --filter "项目名" preview
 
 ## 👥 维护团队
 
-- **项目负责人**: [@你的用户名](https://github.com/你的用户名)
-- **技术架构**: [@你的用户名](https://github.com/你的用户名)
-- **UI/UX 设计**: [@你的用户名](https://github.com/你的用户名)
+- **项目负责人**: [@uqcire](https://github.com/uqcire)
+- **技术架构**: [@uqcire](https://github.com/uqcire)
+- **全栈开发**: [@uqcire](https://github.com/uqcire)
 
 ## 📞 联系方式
 
-- **邮箱**: your.email@example.com
-- **GitHub Issues**: [项目问题反馈](https://github.com/你的用户名/项目名/issues)
-- **讨论区**: [GitHub Discussions](https://github.com/你的用户名/项目名/discussions)
+- **GitHub Issues**: [项目问题反馈](https://github.com/uqcire/projects-monorepo/issues)
+- **讨论区**: [GitHub Discussions](https://github.com/uqcire/projects-monorepo/discussions)
+- **开发环境报告**: [查看测试详情](./dev-environment-report.md)
 
 ---
 
@@ -376,6 +416,6 @@ pnpm --filter "项目名" preview
 
 **⭐ 如果这个项目对您有帮助，请给我们一个 Star！**
 
-Made with ❤️ by [Your Name](https://github.com/你的用户名)
+Made with ❤️ by [@uqcire](https://github.com/uqcire)
 
 </div>
