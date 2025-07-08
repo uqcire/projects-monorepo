@@ -8,7 +8,13 @@
     "lint": "pnpm --filter \"packages/apps/*\" lint",
     "deps:check": "node scripts/check-dependencies.js",
     "deps:update": "pnpm update --recursive",
-    "tailwind:test": "node scripts/test-tailwind-themes.js"
+    "tailwind:test": "node scripts/test-tailwind-themes.js",
+    "dev:test": "powershell -ExecutionPolicy Bypass -File scripts/test-dev-environment.ps1",
+    "dev:dflm": "pnpm --filter dflm-website dev",
+    "dev:basketball": "pnpm --filter project--basketball-stats-app dev",
+    "dev:cirq": "pnpm --filter Cirq dev",
+    "dev:gcn": "pnpm --filter gcn-website dev",
+    "dev:template": "pnpm --filter project-development-environment--daysi-ui dev"
   },
   "devDependencies": {
     "@antfu/eslint-config": "^4.16.2",

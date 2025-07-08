@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { glob } from 'glob'
 import { readFileSync } from 'node:fs'
+import { glob } from 'glob'
 import { getAllVersions } from '../packages/dependency-versions/index.js'
 
 console.log('🔍 检查依赖版本一致性...\n')
