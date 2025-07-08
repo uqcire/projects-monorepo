@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
-import { readFileSync } from 'node:fs'
 import { glob } from 'glob'
+import { readFileSync } from 'node:fs'
 import { getAllVersions } from '../packages/dependency-versions/index.js'
 
 console.log('🔍 检查依赖版本一致性...\n')
@@ -9,16 +9,16 @@ console.log('🔍 检查依赖版本一致性...\n')
 // 获取标准版本
 const standardVersions = getAllVersions()
 
-// 获取所有项目的 package.json 文件
-const packageFiles = glob.sync('*/package.json', {
-  ignore: ['node_modules/**', 'packages/**'],
+// 获取所有项目的 package.json 文件 (适应新的 monorepo 结构)
+const packageFiles = glob.sync('packages/apps/*/package.json', {
+  ignore: ['node_modules/**'],
 })
 
 // 存储发现的问题
 const issues = []
 
 packageFiles.forEach((file) => {
-  const projectName = file.replace('/package.json', '')
+  const projectName = file.replace('packages/apps/', '').replace('/package.json', '')
   console.log(`📦 检查项目: ${projectName}`)
 
   const pkg = JSON.parse(readFileSync(file, 'utf8'))

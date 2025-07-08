@@ -1,0 +1,87 @@
+// article
+article {
+  @apply text-base leading-4;
+}
+
+blockquote,
+figure,
+ol,
+p,
+pre,
+ul {
+  @apply mb-2;
+}
+
+address,
+blockquote,
+details,
+dl,
+fieldset,
+hr,
+legend,
+ol,
+p,
+pre,
+summary,
+table,
+ul {
+  @apply my-2;
+}
+
+code,
+pre {
+  @apply whitespace-pre-wrap break-normal text-left rounded;
+}
+
+pre {
+  @apply font-fira text-base block overflow-auto p-1 border border-solid border-white shadow-md shadow-slate-100 bg-slate-100;
+}
+
+code {
+  @apply inline m-0 font-fira text-sm font-normal leading-3 border border-solid border-white shadow-md shadow-slate-100 bg-slate-100 italic;
+}
+
+dd,
+ol,
+ul {
+  @apply mx-2;
+}
+
+blockquote {
+  @apply pl-1 text-xl font-semibold leading-5 border-l-4 border-fgl-lime;
+}
+
+dt,
+summary {
+  @apply font-raleway font-medium mb-1;
+}
+
+dd {
+  @apply mb-1 ml-1 text-sm leading-3;
+
+  &:last-child {
+    @apply mb-0;
+  }
+}
+
+figcaption,
+figure {
+  @apply block;
+}
+
+figcaption {
+  @apply text-sm opacity-80;
+}
+
+.fgl-text-link {
+  @apply p-0 border-0 underline  underline-offset-1 decoration-1 transition-all duration-200 ease-in-out;
+
+  &:hover,
+  :focus {
+    @apply decoration-2 underline-offset-2;
+  }
+
+  &:focus {
+    @apply no-underline;
+  }
+}

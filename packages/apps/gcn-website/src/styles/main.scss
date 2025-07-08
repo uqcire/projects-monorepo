@@ -1,0 +1,16 @@
+// tailwind
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+// RESET
+@import 'reset';
+
+// BASE & LAYOUT
+@import 'elements';
+@import 'layouts';
+
+// TYPOGRAPHYS
+@import 'typographys';
+
+// colors

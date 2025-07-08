@@ -1,0 +1,58 @@
+# -------------------------------------
+# Node & Package Manager
+# -------------------------------------
+node_modules/
+pnpm-lock.yaml  # Optional: include if you want deterministic installs
+
+# -------------------------------------
+# Vite & Build Artifacts
+# -------------------------------------
+dist/
+.vitepress/dist/
+.temp/
+*.local
+*.cache
+
+# -------------------------------------
+# Environment Variables (DO NOT COMMIT)
+# -------------------------------------
+.env
+.env.*        # Includes .env.local, .env.development, etc.
+!.env.example # Only commit safe, public template
+
+# -------------------------------------
+# Editor & System Files
+# -------------------------------------
+*.log
+*.tsbuildinfo
+*.swp
+*.swo
+*.bak
+*.tmp
+
+# macOS
+.DS_Store
+
+# Windows
+Thumbs.db
+ehthumbs.db
+desktop.ini
+
+# Linux
+*~
+
+# -------------------------------------
+# IDE Configs
+# -------------------------------------
+.vscode/
+.idea/
+
+# -------------------------------------
+# Git Customization / Personal Files
+# -------------------------------------
+.cursorrules   # Only if not used by your shared tooling
+
+# -------------------------------------
+# Output / Temp Files
+# -------------------------------------
+stats.html     # Build stats output, removed from repo

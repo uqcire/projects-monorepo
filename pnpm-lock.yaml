@@ -75,14 +75,14 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
 
-  basketball-score:
+  packages/apps/basketball-score:
     dependencies:
       '@monorepo/vite-config':
         specifier: workspace:^
-        version: link:../packages/vite-config
+        version: link:../../vite-config
       '@shared/tailwind-config':
         specifier: workspace:*
-        version: link:../packages/tailwind-config
+        version: link:../../tailwind-config
       '@supabase/supabase-js':
         specifier: ^2.50.3
         version: 2.50.3
@@ -151,14 +151,14 @@ importers:
         specifier: ^7.7.7
         version: 7.7.7(rollup@4.44.2)(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
 
-  cirq:
+  packages/apps/cirq:
     dependencies:
       '@monorepo/vite-config':
         specifier: workspace:^
-        version: link:../packages/vite-config
+        version: link:../../vite-config
       '@shared/tailwind-config':
         specifier: workspace:*
-        version: link:../packages/tailwind-config
+        version: link:../../tailwind-config
       '@supabase/supabase-js':
         specifier: ^2.50.3
         version: 2.50.3
@@ -230,14 +230,14 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
 
-  dflm:
+  packages/apps/dflm:
     dependencies:
       '@monorepo/vite-config':
         specifier: workspace:^
-        version: link:../packages/vite-config
+        version: link:../../vite-config
       '@shared/tailwind-config':
         specifier: workspace:*
-        version: link:../packages/tailwind-config
+        version: link:../../tailwind-config
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -306,14 +306,14 @@ importers:
         specifier: ^0.5.1
         version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
 
-  gcn-website:
+  packages/apps/gcn-website:
     dependencies:
       '@monorepo/vite-config':
         specifier: workspace:^
-        version: link:../packages/vite-config
+        version: link:../../vite-config
       '@shared/tailwind-config':
         specifier: workspace:*
-        version: link:../packages/tailwind-config
+        version: link:../../tailwind-config
       pinia:
         specifier: ^3.0.3
         version: 3.0.3(typescript@5.8.3)(vue@3.5.17(typescript@5.8.3))
@@ -400,46 +400,14 @@ importers:
         specifier: ^0.2.3
         version: 0.2.3(typescript@5.8.3)
 
-  packages/dependency-versions: {}
-
-  packages/tailwind-config:
-    dependencies:
-      daisyui:
-        specifier: ^5.0.46
-        version: 5.0.46
-      deepmerge:
-        specifier: ^4.3.1
-        version: 4.3.1
-      tailwindcss:
-        specifier: ^4.1.11
-        version: 4.1.11
-
-  packages/vite-config:
-    dependencies:
-      '@tailwindcss/vite':
-        specifier: ^4.0.0
-        version: 4.1.11(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
-      '@vitejs/plugin-vue':
-        specifier: ^5.0.0
-        version: 5.2.4(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
-      rollup-plugin-visualizer:
-        specifier: ^5.14.0
-        version: 5.14.0(rollup@4.44.2)
-      vite:
-        specifier: ^6.0.0
-        version: 6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0)
-      vite-plugin-compression:
-        specifier: ^0.5.1
-        version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
-
-  site-template:
+  packages/apps/site-template:
     dependencies:
       '@monorepo/vite-config':
         specifier: workspace:^
-        version: link:../packages/vite-config
+        version: link:../../vite-config
       '@shared/tailwind-config':
         specifier: workspace:*
-        version: link:../packages/tailwind-config
+        version: link:../../tailwind-config
       axios:
         specifier: ^1.10.0
         version: 1.10.0
@@ -501,6 +469,38 @@ importers:
       unplugin-vue-components:
         specifier: ^28.8.0
         version: 28.8.0(@babel/parser@7.28.0)(vue@3.5.17(typescript@5.8.3))
+      vite-plugin-compression:
+        specifier: ^0.5.1
+        version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
+
+  packages/dependency-versions: {}
+
+  packages/tailwind-config:
+    dependencies:
+      daisyui:
+        specifier: ^5.0.46
+        version: 5.0.46
+      deepmerge:
+        specifier: ^4.3.1
+        version: 4.3.1
+      tailwindcss:
+        specifier: ^4.1.11
+        version: 4.1.11
+
+  packages/vite-config:
+    dependencies:
+      '@tailwindcss/vite':
+        specifier: ^4.0.0
+        version: 4.1.11(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
+      '@vitejs/plugin-vue':
+        specifier: ^5.0.0
+        version: 5.2.4(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))(vue@3.5.17(typescript@5.8.3))
+      rollup-plugin-visualizer:
+        specifier: ^5.14.0
+        version: 5.14.0(rollup@4.44.2)
+      vite:
+        specifier: ^6.0.0
+        version: 6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0)
       vite-plugin-compression:
         specifier: ^0.5.1
         version: 0.5.1(vite@6.3.5(@types/node@24.0.10)(jiti@2.4.2)(lightningcss@1.30.1)(sass@1.89.2)(yaml@2.8.0))
@@ -6058,7 +6058,7 @@ snapshots:
       '@commitlint/types': 19.8.1
       chalk: 5.4.1
       cosmiconfig: 9.0.0(typescript@5.8.3)
-      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3)
+      cosmiconfig-typescript-loader: 6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@4.9.5))(typescript@5.8.3)
       lodash.isplainobject: 4.0.6
       lodash.merge: 4.6.2
       lodash.uniq: 4.5.0
@@ -7601,10 +7601,10 @@ snapshots:
       jiti: 2.4.2
       typescript: 4.9.5
 
-  cosmiconfig-typescript-loader@6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@5.8.3))(typescript@5.8.3):
+  cosmiconfig-typescript-loader@6.1.0(@types/node@24.0.10)(cosmiconfig@9.0.0(typescript@4.9.5))(typescript@5.8.3):
     dependencies:
       '@types/node': 24.0.10
-      cosmiconfig: 9.0.0(typescript@5.8.3)
+      cosmiconfig: 9.0.0(typescript@4.9.5)
       jiti: 2.4.2
       typescript: 5.8.3
     optional: true

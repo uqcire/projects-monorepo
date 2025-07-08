@@ -1,0 +1,32 @@
+picture {
+  @apply h-full max-w-none object-cover w-full;
+}
+
+.fgl-layout {
+  @apply grid grid-cols-12 gap-4;
+
+  &--center {
+    @apply col-start-3 col-span-8;
+  }
+}
+
+.fgl-background {
+  max-width: none;
+  position: relative;
+  width: 100%;
+
+  &__overlay-center {
+    color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+}
+
+.container {
+  max-width: 85rem;
+}

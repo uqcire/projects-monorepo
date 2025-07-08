@@ -1,0 +1,56 @@
+{
+  "name": "Cirq",
+  "version": "1.0.0",
+  "packageManager": "pnpm@10.12.4",
+  "license": "MIT",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "cz": "czg"
+  },
+  "dependencies": {
+    "@monorepo/vite-config": "workspace:^",
+    "@shared/tailwind-config": "workspace:*",
+    "@supabase/supabase-js": "^2.50.3",
+    "axios": "^1.10.0",
+    "pinia": "^3.0.3",
+    "vite": "^6.3.5",
+    "vue": "^3.5.17",
+    "vue-router": "^4.5.1"
+  },
+  "devDependencies": {
+    "@iconify/json": "^2.2.356",
+    "@tailwindcss/vite": "^4.1.11",
+    "@vitejs/plugin-vue": "^5.2.4",
+    "commitlint-config-cz": "^0.13.3",
+    "cz-git": "^1.11.2",
+    "czg": "^1.11.2",
+    "daisyui": "5.0.0",
+    "eslint": "^9.30.1",
+    "eslint-plugin-format": "^1.0.1",
+    "husky": "^9.1.7",
+    "lint-staged": "^15.5.2",
+    "rollup-plugin-visualizer": "^5.14.0",
+    "tailwindcss": "^4.1.11",
+    "unplugin-auto-import": "^19.3.0",
+    "unplugin-icons": "^22.1.0",
+    "unplugin-vue-components": "^28.8.0",
+    "vite-plugin-compression": "^0.5.1"
+  },
+  "config": {
+    "commitizen": {
+      "path": "node_modules/cz-git",
+      "czConfig": "./cz-config.js"
+    }
+  },
+  "lint-staged": {
+    "*.{js,vue}": [
+      "eslint --ext .js,.vue ."
+    ]
+  }
+}

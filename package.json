@@ -3,9 +3,9 @@
   "type": "module",
   "private": true,
   "scripts": {
-    "dev": "pnpm --filter \"./*\" --parallel dev",
-    "build": "pnpm --filter \"./*\" build",
-    "lint": "pnpm --filter \"./*\" lint",
+    "dev": "pnpm --filter \"packages/apps/*\" --parallel dev",
+    "build": "pnpm --filter \"packages/apps/*\" build",
+    "lint": "pnpm --filter \"packages/apps/*\" lint",
     "deps:check": "node scripts/check-dependencies.js",
     "deps:update": "pnpm update --recursive",
     "tailwind:test": "node scripts/test-tailwind-themes.js"
