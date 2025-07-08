@@ -1,8 +1,8 @@
-const { createTailwindConfig } = require('@shared/tailwind-config')
-const { dflmPreset } = require('@shared/tailwind-config/presets')
-const { dflmTheme } = require('@shared/tailwind-config/themes')
+import { createTailwindConfig } from '@shared/tailwind-config'
+import { dflmPreset } from '@shared/tailwind-config/presets'
+import { dflmTheme } from '@shared/tailwind-config/themes'
 
-module.exports = createTailwindConfig({
+export default createTailwindConfig({
   daisyui: true,
   extend: {
     ...dflmPreset,
