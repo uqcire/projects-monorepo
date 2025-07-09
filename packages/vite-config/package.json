@@ -29,7 +29,6 @@
     }
   },
   "dependencies": {
-    "rollup-plugin-visualizer": "^5.14.0",
     "vite-plugin-compression": "^0.5.1"
   }
 }

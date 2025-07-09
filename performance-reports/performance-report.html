@@ -95,11 +95,11 @@
     <div class="container">
         <div class="header">
             <h1>性能分析综合报告</h1>
-            <div class="score-circle" style="color: #ff4757">
-                30
+            <div class="score-circle" style="color: #ff6348">
+                50
             </div>
-            <p>综合评分等级: D</p>
-            <p>生成时间: 2025-07-09 13:39:35</p>
+            <p>综合评分等级: C+</p>
+            <p>生成时间: 2025-07-09 15:35:01</p>
         </div>
 
         <div class="content">
@@ -107,13 +107,13 @@
                 
       <div class="summary-card">
           <h3>📦 打包分析</h3>
-          
+          <p>❌ 无打包数据</p>
       </div>
     
                 
       <div class="summary-card">
           <h3>📦 依赖分析</h3>
-          <p><strong>projects:</strong> 14</p><p><strong>dependencies:</strong> 73</p><p><strong>duplicates:</strong> 38</p><p><strong>conflicts:</strong> 2</p><p><strong>healthScore:</strong> 30</p>
+          <p><strong>projects:</strong> 14</p><p><strong>dependencies:</strong> 73</p><p><strong>duplicates:</strong> 22</p><p><strong>conflicts:</strong> 0</p><p><strong>healthScore:</strong> 50</p>
       </div>
     
                 
@@ -125,7 +125,7 @@
                 
       <div class="summary-card">
           <h3>🖥️ 运行时分析</h3>
-          <p><strong>platform:</strong> win32</p><p><strong>nodeVersion:</strong> v23.7.0</p><p><strong>memoryUsage:</strong> 78%</p><p><strong>heapUsage:</strong> 63%</p>
+          <p>❌ 无运行时数据</p>
       </div>
     
             </div>
@@ -134,17 +134,10 @@
       <div class="recommendations">
           <h2>💡 优化建议</h2>
           
-      <div class="recommendation high">
-          <div class="recommendation-module">dependencies</div>
-          <div style="flex: 1;">
-              <strong>[version-conflicts]</strong> 发现 1 个高危版本冲突，建议统一版本号
-          </div>
-      </div>
-    
       <div class="recommendation medium">
           <div class="recommendation-module">dependencies</div>
           <div style="flex: 1;">
-              <strong>[duplicates]</strong> 发现 38 个重复依赖，建议提升到 workspace 根目录
+              <strong>[duplicates]</strong> 发现 22 个重复依赖，建议提升到 workspace 根目录
           </div>
       </div>
     
@@ -152,13 +145,6 @@
           <div class="recommendation-module">dependencies</div>
           <div style="flex: 1;">
               <strong>[lock-files]</strong> 8 个项目缺少锁文件，建议添加
-          </div>
-      </div>
-    
-      <div class="recommendation medium">
-          <div class="recommendation-module">runtime</div>
-          <div style="flex: 1;">
-              <strong>[build-tool]</strong> 缺少现代构建工具配置，建议使用 Vite 或 Webpack 优化构建性能
           </div>
       </div>
     

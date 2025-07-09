@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "性能对比报告",
-    "generated": "2025-07-09T13:39:35.689Z",
+    "generated": "2025-07-09T15:35:01.505Z",
     "version": "1.0.0",
-    "historicalDataPoints": 2
+    "historicalDataPoints": 5
   },
   "comparison": {
     "bundle": {
@@ -12,15 +12,15 @@
     },
     "dependencies": {
       "status": "compared",
-      "current": 30,
-      "currentGrade": "D",
+      "current": 50,
+      "currentGrade": "C+",
       "previous": 30,
       "previousGrade": "D",
-      "change": 0,
-      "trend": "stable",
+      "change": 20,
+      "trend": "improved",
       "recommendation": {
-        "type": "info",
-        "message": "依赖健康度保持稳定"
+        "type": "positive",
+        "message": "依赖健康度显著改善"
       }
     },
     "build": {
@@ -35,19 +35,31 @@
     },
     "dependencyHealth": {
       "status": "available",
-      "dataPoints": 2,
-      "direction": "stable",
-      "changeRate": 0,
+      "dataPoints": 5,
+      "direction": "increasing",
+      "changeRate": 66.67,
       "firstValue": 30,
-      "lastValue": 30,
+      "lastValue": 50,
       "data": [
         {
           "timestamp": "2025-07-09T13:39:27.860Z",
           "value": 30
         },
         {
-          "timestamp": "2025-07-09T13:39:35.689Z",
+          "timestamp": "2025-07-09T13:39:35.691Z",
           "value": 30
+        },
+        {
+          "timestamp": "2025-07-09T14:16:07.061Z",
+          "value": 30
+        },
+        {
+          "timestamp": "2025-07-09T15:14:12.016Z",
+          "value": 30
+        },
+        {
+          "timestamp": "2025-07-09T15:35:01.505Z",
+          "value": 50
         }
       ]
     },
@@ -56,5 +68,11 @@
       "dataPoints": 0
     }
   },
-  "insights": []
+  "insights": [
+    {
+      "type": "positive",
+      "title": "依赖健康度趋势",
+      "message": "依赖健康度在过去的测量中持续改善"
+    }
+  ]
 }

@@ -21,7 +21,6 @@
   },
   "devDependencies": {
     "@monorepo/dependency-versions": "workspace:*",
-    "@vitejs/plugin-vue": "^5.2.4",
     "markdown-it": "^14.1.0",
     "markdown-it-container": "^4.0.0",
     "shiki": "^1.26.0",

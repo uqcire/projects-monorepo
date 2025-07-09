@@ -13,8 +13,7 @@
     "test:run": "vitest run",
     "test:watch": "vitest watch",
     "test:coverage": "vitest run --coverage",
-    "test:ui": "vitest --ui",
-    "prepare": "husky install"
+    "test:ui": "vitest --ui"
   },
   "dependencies": {
     "@monorepo/styles": "workspace:*",
@@ -51,10 +50,6 @@
     "naive-ui": "^2.42.0",
     "postcss": "^8.5.6",
     "sass": "^1.89.2",
-    "tailwindcss": "^4.1.11",
-    "typescript": "^5.8.3",
-    "unplugin-auto-import": "^19.3.0",
-    "vite": "^6.3.5",
     "vite-plugin-vue-setup-extend": "^0.3.0",
     "vitest": "^2.1.8",
     "vue-tsc": "^2.1.10"
