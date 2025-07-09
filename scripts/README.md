@@ -46,8 +46,8 @@ pnpm tools build clean --all         # 清理所有
 #### 基础性能检查
 
 ```bash
-pnpm tools perf check        # 快速性能检查 (3秒)
-pnpm tools perf check --silent  # 静默模式快速检查
+pnpm tools perf check        # 快速性能检查 (3秒) + 自动生成报告并打开网页
+pnpm tools perf check --silent  # 静默模式快速检查 (不打开网页)
 pnpm tools perf lite         # 精简性能监控 (10秒)
 pnpm tools perf lite --quick # 快速模式精简监控
 pnpm tools perf full         # 完整性能分析 (30秒+)
@@ -100,7 +100,7 @@ pnpm lint:fix         # 修复代码格式
 
 # 快速工具命令
 pnpm clean            # 清理构建产物
-pnpm perf             # 快速性能检查
+pnpm perf             # 快速性能检查 + 自动打开报告
 pnpm deps:check       # 依赖版本检查
 
 # 专业性能分析命令
@@ -198,14 +198,20 @@ pnpm deploy:check
 ### 性能监控工作流
 
 ```bash
-# 快速检查 (日常使用)
+# 快速检查 (日常使用) - 自动生成报告并打开网页
 pnpm tools perf check
+
+# 静默检查 (CI/脚本使用) - 不打开网页
+pnpm tools perf check --silent
 
 # 详细分析 (每周)
 pnpm tools perf lite
 
 # 完整报告 (发布前)
 pnpm tools perf full
+
+# 手动生成专业报告
+pnpm tools perf report:all
 ```
 
 ### 环境管理工作流

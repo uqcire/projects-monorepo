@@ -1,8 +1,8 @@
 #!/usr/bin/env node
 
-import { execSync } from 'node:child_process'
+import { execSync, spawn } from 'node:child_process'
 import { existsSync, readFileSync, statSync } from 'node:fs'
-import { join } from 'node:path'
+import { join, resolve } from 'node:path'
 import process from 'node:process'
 
 import chalk from 'chalk'
@@ -301,6 +301,90 @@ class QuickPerfCheck {
     const size = Math.round((bytes / k ** i) * 10) / 10
     return short ? `${size}${sizes[i]}` : `${size} ${sizes[i]}`
   }
+
+  /**
+   * 自动生成性能报告并打开网页
+   */
+  async generateAndOpenReport() {
+    try {
+      if (!this.config.silent) {
+        process.stdout.write(chalk.gray(' 📊'))
+      }
+
+      // 调用 performance-analyzer 生成报告
+      const reportPath = resolve('performance-reports/performance-report.html')
+
+      try {
+        // 运行 performance-analyzer 生成报告
+        execSync('node scripts/performance-analyzer.js report:all', {
+          stdio: 'pipe',
+          timeout: 15000, // 15秒超时
+        })
+
+        // 检查报告文件是否生成成功
+        if (existsSync(reportPath)) {
+          // 自动打开网页
+          this.openInBrowser(reportPath)
+
+          if (!this.config.silent) {
+            console.log(chalk.gray(' 📊 已自动打开性能报告'))
+          }
+        }
+      }
+      catch {
+        // 如果生成报告失败，静默处理，不影响主要功能
+        if (!this.config.silent) {
+          console.log(chalk.gray(' ⚠️ 报告生成失败'))
+        }
+      }
+    }
+    catch {
+      // 静默处理错误，不影响主要的性能检查功能
+    }
+  }
+
+  /**
+   * 在浏览器中打开文件
+   */
+  openInBrowser(filePath) {
+    const absolutePath = resolve(filePath)
+
+    try {
+      let command
+      const platform = process.platform
+
+      if (platform === 'win32') {
+        // Windows
+        command = `start "${absolutePath}"`
+      }
+      else if (platform === 'darwin') {
+        // macOS
+        command = `open "${absolutePath}"`
+      }
+      else {
+        // Linux
+        command = `xdg-open "${absolutePath}"`
+      }
+
+      // 使用 spawn 异步执行，避免阻塞
+      if (platform === 'win32') {
+        spawn('cmd', ['/c', 'start', '', absolutePath], {
+          detached: true,
+          stdio: 'ignore',
+        }).unref()
+      }
+      else {
+        const [cmd, ...args] = command.split(' ')
+        spawn(cmd, args, {
+          detached: true,
+          stdio: 'ignore',
+        }).unref()
+      }
+    }
+    catch {
+      // 静默处理浏览器打开失败的情况
+    }
+  }
 }
 
 // CLI
@@ -344,6 +428,11 @@ async function main() {
   const config = parseArgs()
   const checker = new QuickPerfCheck(config)
   const result = await checker.check()
+
+  // 自动生成性能报告并打开网页（除非是静默模式）
+  if (!config.silent) {
+    await checker.generateAndOpenReport()
+  }
 
   // 设置退出代码
   process.exit(result.success ? 0 : 1)
