@@ -166,7 +166,6 @@ function generateEnvContent(env, projectName) {
 function setProjectEnv(env, projectName) {
   const projectPath = join(projectRoot, projectPaths[projectName])
   const envFile = join(projectPath, '.env')
-  const envLocalFile = join(projectPath, '.env.local')
 
   if (!existsSync(projectPath)) {
     console.error(`❌ 项目路径不存在: ${projectPath}`)
@@ -182,12 +181,10 @@ function setProjectEnv(env, projectName) {
   }
 
   try {
-    // 备份现有文件
+    // 安全提示：不创建备份文件以避免敏感信息泄露
     if (existsSync(envFile) && !options.force) {
-      const backupFile = `${envFile}.backup.${Date.now()}`
-      const existingContent = readFileSync(envFile, 'utf8')
-      writeFileSync(backupFile, existingContent)
-      console.log(`📋 已备份现有文件: ${backupFile}`)
+      console.log(`⚠️  将覆盖现有环境文件: ${envFile}`)
+      console.log(`💡 如需备份，请手动复制到项目外的安全位置`)
     }
 
     writeFileSync(envFile, content)
@@ -293,8 +290,8 @@ function validateEnvironment(env) {
   // 检查 URL 格式
   if (config.VITE_API_URL) {
     try {
-      new URL(config.VITE_API_URL)
-      console.log(`✅ VITE_API_URL 格式有效`)
+      const url = new URL(config.VITE_API_URL)
+      console.log(`✅ VITE_API_URL 格式有效: ${url.origin}`)
     }
     catch {
       console.error(`❌ VITE_API_URL 格式无效: ${config.VITE_API_URL}`)
@@ -350,14 +347,12 @@ function resetProjectEnv(projectName) {
   let reset = false
 
   if (existsSync(envFile)) {
-    // 备份后删除
-    const backupFile = `${envFile}.backup.${Date.now()}`
-    const content = readFileSync(envFile, 'utf8')
-    writeFileSync(backupFile, content)
+    // 直接删除，不创建备份以避免敏感信息泄露
+    console.log(`⚠️  即将删除环境文件: ${envFile}`)
 
     try {
       require('node:fs').unlinkSync(envFile)
-      console.log(`✅ 已删除 .env 文件 (已备份到 ${backupFile})`)
+      console.log(`✅ 已删除 .env 文件`)
       reset = true
     }
     catch (error) {

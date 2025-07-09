@@ -15,6 +15,10 @@ build/
 .env.development.local
 .env.test.local
 .env.production.local
+# Environment backup files (contains sensitive data)
+.env.backup.*
+*.env.backup
+.env.bak
 
 # IDE files
 .vscode/
@@ -84,3 +88,16 @@ vite.config.ts.timestamp-*
 
 # Personal files
 monorepo-optimization-guide.html
+
+# Security - Sensitive data files
+*.key
+*.pem
+*.p12
+*.pfx
+secrets.*
+*secret*
+*credentials*
+
+# Test results and reports
+*test-results.json
+*test-results.html
