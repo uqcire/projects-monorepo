@@ -1,0 +1,60 @@
+{
+  "metadata": {
+    "title": "性能对比报告",
+    "generated": "2025-07-09T13:39:35.689Z",
+    "version": "1.0.0",
+    "historicalDataPoints": 2
+  },
+  "comparison": {
+    "bundle": {
+      "status": "no-data",
+      "message": "当前无打包数据"
+    },
+    "dependencies": {
+      "status": "compared",
+      "current": 30,
+      "currentGrade": "D",
+      "previous": 30,
+      "previousGrade": "D",
+      "change": 0,
+      "trend": "stable",
+      "recommendation": {
+        "type": "info",
+        "message": "依赖健康度保持稳定"
+      }
+    },
+    "build": {
+      "status": "no-data",
+      "message": "当前无构建数据"
+    }
+  },
+  "trends": {
+    "bundleSize": {
+      "status": "insufficient-data",
+      "dataPoints": 0
+    },
+    "dependencyHealth": {
+      "status": "available",
+      "dataPoints": 2,
+      "direction": "stable",
+      "changeRate": 0,
+      "firstValue": 30,
+      "lastValue": 30,
+      "data": [
+        {
+          "timestamp": "2025-07-09T13:39:27.860Z",
+          "value": 30
+        },
+        {
+          "timestamp": "2025-07-09T13:39:35.689Z",
+          "value": 30
+        }
+      ]
+    },
+    "buildTime": {
+      "status": "insufficient-data",
+      "dataPoints": 0
+    }
+  },
+  "insights": []
+}

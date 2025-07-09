@@ -1,0 +1,51 @@
+{
+  "name": "@monorepo/performance-monitor",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Performance monitoring and analysis tools for monorepo projects",
+  "author": "Monorepo Team",
+  "license": "MIT",
+  "keywords": [
+    "performance",
+    "monitoring",
+    "analysis",
+    "bundler",
+    "dependencies",
+    "monorepo",
+    "optimization"
+  ],
+  "exports": {
+    ".": "./src/index.js",
+    "./analyzers": "./src/analyzers/index.js",
+    "./reports": "./src/reports/index.js",
+    "./utils": "./src/utils/index.js"
+  },
+  "main": "src/index.js",
+  "scripts": {
+    "analyze": "node src/analyzers/index.js",
+    "analyze:bundle": "node src/analyzers/BundleAnalyzer.js",
+    "analyze:deps": "node src/analyzers/DependencyAnalyzer.js",
+    "analyze:build": "node src/analyzers/BuildTimeAnalyzer.js",
+    "report": "node src/reports/index.js",
+    "report:performance": "node src/reports/PerformanceReport.js",
+    "report:bundle": "node src/reports/BundleReport.js",
+    "report:comparison": "node src/reports/ComparisonReport.js",
+    "baseline:set": "node src/utils/baseline-manager.js --set",
+    "baseline:check": "node src/utils/baseline-manager.js --check",
+    "baseline:clear": "node src/utils/baseline-manager.js --clear",
+    "benchmark": "node src/utils/benchmark.js",
+    "test": "node src/__tests__/index.js"
+  },
+  "peerDependencies": {
+    "vite": ">=4.0.0"
+  },
+  "dependencies": {
+    "chalk": "^5.3.0",
+    "fast-glob": "^3.3.2",
+    "glob": "^10.3.10",
+    "ora": "^8.0.1"
+  },
+  "devDependencies": {
+    "@monorepo/typescript-config": "workspace:*"
+  }
+}

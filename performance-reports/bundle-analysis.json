@@ -1,0 +1,68 @@
+{
+  "metadata": {
+    "title": "打包分析报告",
+    "generated": "2025-07-09T13:39:35.683Z",
+    "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects",
+    "version": "1.0.0"
+  },
+  "summary": {
+    "totalSize": 0,
+    "fileCount": 0,
+    "largestFiles": [],
+    "assetBreakdown": {},
+    "recommendations": []
+  },
+  "details": {
+    "directories": {
+      "nodeModules": {
+        "totalPackages": 23,
+        "analyzedPackages": 20,
+        "totalSize": 0,
+        "largestPackages": [
+          {
+            "package": "vite-plugin-compression",
+            "size": "0 B"
+          },
+          {
+            "package": "vite",
+            "size": "0 B"
+          },
+          {
+            "package": "unplugin-vue-components",
+            "size": "0 B"
+          },
+          {
+            "package": "unplugin-auto-import",
+            "size": "0 B"
+          },
+          {
+            "package": "typescript",
+            "size": "0 B"
+          },
+          {
+            "package": "tailwindcss",
+            "size": "0 B"
+          },
+          {
+            "package": "rollup-plugin-visualizer",
+            "size": "0 B"
+          },
+          {
+            "package": "prettier",
+            "size": "0 B"
+          },
+          {
+            "package": "lint-staged",
+            "size": "0 B"
+          },
+          {
+            "package": "husky",
+            "size": "0 B"
+          }
+        ]
+      }
+    },
+    "fileTypes": {},
+    "assets": {}
+  }
+}

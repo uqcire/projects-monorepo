@@ -1,0 +1,135 @@
+{
+  "timestamp": "2025-07-09T13:41:51.658Z",
+  "version": "1.0.0",
+  "dependencies": {
+    "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\performance-monitor",
+    "timestamp": "2025-07-09T13:41:51.659Z",
+    "analysis": {
+      "type": "single",
+      "project": {
+        "name": "@monorepo/performance-monitor",
+        "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\performance-monitor\\package.json",
+        "version": "1.0.0",
+        "dependencies": {
+          "chalk": "^5.3.0",
+          "fast-glob": "^3.3.2",
+          "glob": "^10.3.10",
+          "ora": "^8.0.1"
+        },
+        "devDependencies": {
+          "@monorepo/typescript-config": "workspace:*"
+        },
+        "peerDependencies": {
+          "vite": ">=4.0.0"
+        },
+        "dependencyCount": {
+          "dependencies": 4,
+          "devDependencies": 1,
+          "peerDependencies": 1
+        },
+        "scripts": {
+          "analyze": "node src/analyzers/index.js",
+          "analyze:bundle": "node src/analyzers/BundleAnalyzer.js",
+          "analyze:deps": "node src/analyzers/DependencyAnalyzer.js",
+          "analyze:build": "node src/analyzers/BuildTimeAnalyzer.js",
+          "report": "node src/reports/index.js",
+          "report:performance": "node src/reports/PerformanceReport.js",
+          "report:bundle": "node src/reports/BundleReport.js",
+          "report:comparison": "node src/reports/ComparisonReport.js",
+          "baseline:set": "node src/utils/baseline-manager.js --set",
+          "baseline:check": "node src/utils/baseline-manager.js --check",
+          "baseline:clear": "node src/utils/baseline-manager.js --clear",
+          "benchmark": "node src/utils/benchmark.js",
+          "test": "node src/__tests__/index.js"
+        },
+        "nodeModulesExists": true,
+        "lockFileExists": false
+      },
+      "healthScore": 80
+    },
+    "summary": {
+      "type": "single",
+      "projectName": "@monorepo/performance-monitor",
+      "dependencies": 4,
+      "devDependencies": 1,
+      "healthScore": 80,
+      "hasLockFile": false
+    },
+    "recommendations": [
+      {
+        "type": "lock-file",
+        "priority": "high",
+        "message": "缺少锁文件，建议运行 npm install 或 pnpm install 生成"
+      }
+    ]
+  },
+  "runtime": {
+    "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\performance-monitor",
+    "timestamp": "2025-07-09T13:41:51.660Z",
+    "analysis": {
+      "systemMetrics": {
+        "platform": "win32",
+        "nodeVersion": "v23.7.0",
+        "architecture": "x64",
+        "cpuCount": 24,
+        "totalMemory": 34182176768,
+        "freeMemory": 7642300416,
+        "loadAverage": [
+          0,
+          0,
+          0
+        ],
+        "uptime": 1673237.078,
+        "memoryUsagePercent": 78
+      },
+      "memoryUsage": {
+        "rss": 52367360,
+        "heapTotal": 11280384,
+        "heapUsed": 6389832,
+        "external": 1887866,
+        "arrayBuffers": 18165,
+        "heapUsagePercent": 57
+      },
+      "performanceConfig": {
+        "hasViteConfig": false,
+        "hasWebpackConfig": false,
+        "hasTsConfig": false,
+        "hasEslintConfig": false,
+        "hasTailwindConfig": false,
+        "hasPostcssConfig": false,
+        "hasVitestConfig": false,
+        "optimizationPotential": []
+      }
+    },
+    "summary": {
+      "system": {
+        "platform": "win32",
+        "nodeVersion": "v23.7.0",
+        "cpuCount": 24,
+        "totalMemory": "31.83 GB",
+        "memoryUsage": "78%",
+        "loadAverage": "0.00"
+      },
+      "process": {
+        "heapUsed": "6.09 MB",
+        "heapTotal": "10.76 MB",
+        "heapUsage": "57%",
+        "rss": "49.94 MB"
+      },
+      "configuration": {
+        "buildTool": "None",
+        "typescript": false,
+        "linting": false,
+        "testing": false,
+        "styling": "Standard"
+      }
+    },
+    "recommendations": [
+      {
+        "type": "build-tool",
+        "priority": "medium",
+        "message": "缺少现代构建工具配置，建议使用 Vite 或 Webpack 优化构建性能"
+      }
+    ]
+  }
+}

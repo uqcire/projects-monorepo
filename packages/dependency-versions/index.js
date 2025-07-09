@@ -55,6 +55,29 @@ export const devVersions = {
   'markdown-it-container': '^4.0.0',
   'shiki': '^1.26.0',
 
+  // 性能监控工具
+  'webpack-bundle-analyzer': '^4.10.2',
+  'bundlesize': '^0.18.2',
+  'depcheck': '^1.4.7',
+  'npm-check-updates': '^17.1.11',
+  'lighthouse': '^12.1.0',
+  'puppeteer': '^23.10.4',
+  'chalk': '^5.3.0',
+  'ora': '^8.2.0',
+  'boxen': '^8.0.1',
+  'commander': '^12.1.0',
+  'fs-extra': '^11.2.0',
+  'glob': '^11.0.3',
+  'gzip-size': '^7.0.0',
+  'pretty-bytes': '^6.1.1',
+  'table': '^6.8.2',
+  'chart.js': '^4.4.7',
+  'canvas': '^2.11.2',
+  'express': '^4.21.2',
+  'socket.io': '^4.8.1',
+  'node-cron': '^3.0.3',
+  'semver': '^7.6.3',
+
   // Git 工具
   'husky': '^9.1.7',
   'lint-staged': '^15.5.2',
@@ -78,6 +101,7 @@ export const projectSpecificVersions = {
   '@monorepo/typescript-config': 'workspace:*',
   '@monorepo/vitest-config': 'workspace:*',
   '@monorepo/docs': 'workspace:*',
+  '@monorepo/performance-monitor': 'workspace:*',
 
   // Supabase (用于 basketball-score 和 cirq)
   '@supabase/supabase-js': '^2.50.3',

@@ -1,0 +1,3295 @@
+{
+  "metadata": {
+    "title": "性能分析综合报告",
+    "generated": "2025-07-09T13:37:27.804Z",
+    "version": "1.0.0"
+  },
+  "summary": {
+    "overallScore": 30,
+    "bundle": {
+      "status": "no-data",
+      "message": "无打包数据"
+    },
+    "dependencies": {
+      "status": "workspace",
+      "projects": 14,
+      "dependencies": 73,
+      "duplicates": 38,
+      "conflicts": 2,
+      "healthScore": 30
+    },
+    "build": {
+      "status": "no-data",
+      "message": "无构建数据"
+    },
+    "runtime": {
+      "status": "analyzed",
+      "platform": "win32",
+      "nodeVersion": "v23.7.0",
+      "memoryUsage": "77%",
+      "heapUsage": "71%"
+    }
+  },
+  "recommendations": [
+    {
+      "type": "version-conflicts",
+      "priority": "high",
+      "message": "发现 1 个高危版本冲突，建议统一版本号",
+      "details": [
+        "glob"
+      ],
+      "module": "dependencies"
+    },
+    {
+      "type": "duplicates",
+      "priority": "medium",
+      "message": "发现 38 个重复依赖，建议提升到 workspace 根目录",
+      "details": [
+        "tailwindcss",
+        "typescript",
+        "@vitejs/plugin-vue",
+        "daisyui",
+        "rollup-plugin-visualizer"
+      ],
+      "module": "dependencies"
+    },
+    {
+      "type": "lock-files",
+      "priority": "medium",
+      "message": "8 个项目缺少锁文件，建议添加",
+      "details": [
+        "@monorepo/vite-config",
+        "@monorepo/vitest-config",
+        "@monorepo/typescript-config",
+        "@monorepo/styles",
+        "@shared/tailwind-config",
+        "@monorepo/performance-monitor",
+        "@monorepo/docs",
+        "@monorepo/dependency-versions"
+      ],
+      "module": "dependencies"
+    },
+    {
+      "type": "build-tool",
+      "priority": "medium",
+      "message": "缺少现代构建工具配置，建议使用 Vite 或 Webpack 优化构建性能",
+      "module": "runtime"
+    }
+  ],
+  "details": {
+    "bundle": null,
+    "dependencies": {
+      "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects",
+      "timestamp": "2025-07-09T13:37:27.785Z",
+      "analysis": {
+        "type": "workspace",
+        "projects": [
+          {
+            "name": "projects-monorepo",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\package.json",
+            "version": "0.0.0",
+            "dependencies": {},
+            "devDependencies": {
+              "@antfu/eslint-config": "^4.16.2",
+              "@commitlint/cli": "^19.8.1",
+              "@commitlint/config-conventional": "^19.8.1",
+              "@tailwindcss/vite": "^4.1.11",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "chalk": "^5.3.0",
+              "commitlint-config-cz": "^0.13.3",
+              "cross-env": "^7.0.3",
+              "cz-git": "^1.11.2",
+              "czg": "^1.11.2",
+              "daisyui": "^5.0.46",
+              "eslint": "^9.30.1",
+              "eslint-plugin-format": "^1.0.1",
+              "glob": "^11.0.3",
+              "husky": "^9.1.7",
+              "lint-staged": "^15.5.2",
+              "prettier": "^2.8.8",
+              "rollup-plugin-visualizer": "^5.14.0",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "unplugin-vue-components": "^28.8.0",
+              "vite": "^6.3.5",
+              "vite-plugin-compression": "^0.5.1"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 0,
+              "devDependencies": 24,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "// === 开发脚本 ===": "",
+              "dev": "pnpm --filter \"packages/apps/*\" --parallel dev",
+              "dev:dflm": "pnpm --filter dflm-website dev",
+              "dev:basketball": "pnpm --filter project--basketball-stats-app dev",
+              "dev:cirq": "pnpm --filter Cirq dev",
+              "dev:gcn": "pnpm --filter gcn-website dev",
+              "dev:template": "pnpm --filter project-development-environment--daysi-ui dev",
+              "// === 构建脚本 ===": "",
+              "build": "node scripts/parallel-build.js build",
+              "build:sequential": "pnpm --filter \"packages/apps/*\" build",
+              "build:parallel": "node scripts/parallel-build.js build --max-concurrency=5",
+              "build:type-check": "pnpm --filter \"packages/apps/*\" build:type-check",
+              "build:dev": "node scripts/parallel-build.js build --development",
+              "build:prod": "node scripts/parallel-build.js build --production",
+              "build:staging": "node scripts/parallel-build.js build --staging",
+              "// === 代码质量脚本 ===": "",
+              "lint": "pnpm --filter \"packages/apps/*\" lint",
+              "lint:fix": "pnpm --filter \"packages/apps/*\" lint:fix",
+              "type-check": "pnpm --filter \"packages/apps/*\" type-check",
+              "type-check:watch": "pnpm --filter \"packages/apps/*\" --parallel type-check:watch",
+              "// === 测试脚本 ===": "",
+              "test": "pnpm --filter \"packages/apps/*\" test",
+              "test:run": "pnpm --filter \"packages/apps/*\" test:run",
+              "test:coverage": "pnpm --filter \"packages/apps/*\" test:coverage",
+              "test:watch": "pnpm --filter \"packages/apps/*\" --parallel test:watch",
+              "test:ui": "pnpm --filter \"packages/apps/*\" --parallel test:ui",
+              "// === 依赖管理脚本 ===": "",
+              "deps:check": "node scripts/check-dependencies.js",
+              "deps:update": "pnpm update --recursive",
+              "deps:install": "pnpm install --recursive",
+              "deps:clean": "pnpm store prune",
+              "// === 清理脚本 ===": "",
+              "clean": "node scripts/clean-build.js",
+              "clean:build": "node scripts/clean-build.js --build-only",
+              "clean:deps": "node scripts/clean-build.js --deps-only",
+              "clean:cache": "node scripts/clean-build.js --cache-only",
+              "clean:all": "node scripts/clean-build.js --all",
+              "// === 环境管理脚本 ===": "",
+              "env:set": "node scripts/env-manager.js set",
+              "env:get": "node scripts/env-manager.js get",
+              "env:list": "node scripts/env-manager.js list",
+              "env:validate": "node scripts/env-manager.js validate",
+              "env:reset": "node scripts/env-manager.js reset",
+              "env:dev": "node scripts/env-manager.js set development",
+              "env:staging": "node scripts/env-manager.js set staging",
+              "env:prod": "node scripts/env-manager.js set production",
+              "// === 工具脚本 ===": "",
+              "tailwind:test": "node scripts/test-tailwind-themes.js",
+              "styles:test": "node scripts/test-styles-system.js",
+              "typescript:test": "node scripts/test-typescript-config.js",
+              "vitest:test": "node scripts/test-vitest-config.js",
+              "build:test": "node scripts/test-build-scripts.js",
+              "dev:test": "powershell -ExecutionPolicy Bypass -File scripts/test-dev-environment.ps1",
+              "// === 性能监控脚本 ===": "",
+              "perf:analyze": "node scripts/performance-monitor.js",
+              "perf:bundle": "pnpm --filter @monorepo/performance-monitor analyze:bundle",
+              "perf:deps": "pnpm --filter @monorepo/performance-monitor analyze:deps",
+              "perf:build": "pnpm --filter @monorepo/performance-monitor analyze:build",
+              "perf:all": "pnpm --filter @monorepo/performance-monitor analyze:all",
+              "perf:report": "pnpm --filter @monorepo/performance-monitor report:all",
+              "perf:baseline": "pnpm --filter @monorepo/performance-monitor baseline:set",
+              "perf:check": "pnpm --filter @monorepo/performance-monitor baseline:check",
+              "// === 文档系统脚本 ===": "",
+              "docs:dev": "pnpm --filter @monorepo/docs dev",
+              "docs:build": "pnpm --filter @monorepo/docs build",
+              "docs:preview": "pnpm --filter @monorepo/docs preview",
+              "docs:serve": "pnpm --filter @monorepo/docs serve",
+              "// === 预览和部署脚本 ===": "",
+              "preview": "pnpm --filter \"packages/apps/*\" preview",
+              "preview:parallel": "pnpm --filter \"packages/apps/*\" --parallel preview",
+              "deploy:prepare": "pnpm clean:build && pnpm build:prod",
+              "deploy:check": "pnpm build:prod && pnpm test:run"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          },
+          {
+            "name": "@monorepo/vite-config",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\vite-config\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "rollup-plugin-visualizer": "^5.14.0",
+              "vite-plugin-compression": "^0.5.1"
+            },
+            "devDependencies": {},
+            "peerDependencies": {
+              "@tailwindcss/vite": "^4.0.0",
+              "@vitejs/plugin-vue": "^5.0.0",
+              "vite": "^6.0.0"
+            },
+            "dependencyCount": {
+              "dependencies": 2,
+              "devDependencies": 0,
+              "peerDependencies": 3
+            },
+            "scripts": {},
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/vitest-config",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\vitest-config\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "jsdom": "^25.0.1",
+              "vitest": "^2.1.8"
+            },
+            "devDependencies": {},
+            "peerDependencies": {
+              "vue": ">=3.0.0"
+            },
+            "dependencyCount": {
+              "dependencies": 4,
+              "devDependencies": 0,
+              "peerDependencies": 1
+            },
+            "scripts": {},
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/typescript-config",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\typescript-config\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@types/node": "^22.0.0",
+              "@vue/tsconfig": "^0.5.1"
+            },
+            "devDependencies": {
+              "typescript": "^5.8.3"
+            },
+            "peerDependencies": {
+              "typescript": ">=4.9.0"
+            },
+            "dependencyCount": {
+              "dependencies": 2,
+              "devDependencies": 1,
+              "peerDependencies": 1
+            },
+            "scripts": {},
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/styles",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\styles\\package.json",
+            "version": "1.0.0",
+            "dependencies": {},
+            "devDependencies": {
+              "daisyui": "^5.0.46",
+              "tailwindcss": "^4.1.11"
+            },
+            "peerDependencies": {
+              "daisyui": ">=5.0.0",
+              "tailwindcss": ">=4.0.0"
+            },
+            "dependencyCount": {
+              "dependencies": 0,
+              "devDependencies": 2,
+              "peerDependencies": 2
+            },
+            "scripts": {},
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@shared/tailwind-config",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\tailwind-config\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "deepmerge": "^4.3.1"
+            },
+            "devDependencies": {},
+            "peerDependencies": {
+              "daisyui": "^5.0.46",
+              "tailwindcss": "^4.1.11"
+            },
+            "dependencyCount": {
+              "dependencies": 1,
+              "devDependencies": 0,
+              "peerDependencies": 2
+            },
+            "scripts": {},
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/performance-monitor",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\performance-monitor\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "chalk": "^5.3.0",
+              "fast-glob": "^3.3.2",
+              "glob": "^10.3.10",
+              "ora": "^8.0.1"
+            },
+            "devDependencies": {
+              "@monorepo/typescript-config": "workspace:*"
+            },
+            "peerDependencies": {
+              "vite": ">=4.0.0"
+            },
+            "dependencyCount": {
+              "dependencies": 4,
+              "devDependencies": 1,
+              "peerDependencies": 1
+            },
+            "scripts": {
+              "analyze": "node src/analyzers/index.js",
+              "analyze:bundle": "node src/analyzers/BundleAnalyzer.js",
+              "analyze:deps": "node src/analyzers/DependencyAnalyzer.js",
+              "analyze:build": "node src/analyzers/BuildTimeAnalyzer.js",
+              "report": "node src/reports/index.js",
+              "report:performance": "node src/reports/PerformanceReport.js",
+              "report:bundle": "node src/reports/BundleReport.js",
+              "report:comparison": "node src/reports/ComparisonReport.js",
+              "benchmark": "node src/utils/benchmark.js",
+              "test": "node src/__tests__/index.js"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/docs",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\docs\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "vue": "^3.5.17"
+            },
+            "devDependencies": {
+              "@monorepo/dependency-versions": "workspace:*",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "markdown-it": "^14.1.0",
+              "markdown-it-container": "^4.0.0",
+              "shiki": "^1.26.0",
+              "vitepress": "^1.5.0"
+            },
+            "peerDependencies": {
+              "typescript": "^5.8.3"
+            },
+            "dependencyCount": {
+              "dependencies": 1,
+              "devDependencies": 6,
+              "peerDependencies": 1
+            },
+            "scripts": {
+              "dev": "vitepress dev",
+              "build": "vitepress build",
+              "preview": "vitepress preview",
+              "serve": "vitepress serve",
+              "docs:dev": "vitepress dev docs",
+              "docs:build": "vitepress build docs",
+              "docs:preview": "vitepress preview docs"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": false
+          },
+          {
+            "name": "@monorepo/dependency-versions",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\dependency-versions\\package.json",
+            "version": "1.0.0",
+            "dependencies": {},
+            "devDependencies": {},
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 0,
+              "devDependencies": 0,
+              "peerDependencies": 0
+            },
+            "scripts": {},
+            "nodeModulesExists": false,
+            "lockFileExists": false
+          },
+          {
+            "name": "dflm-website",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\apps\\dflm\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@monorepo/styles": "workspace:*",
+              "@monorepo/vite-config": "workspace:^",
+              "@shared/tailwind-config": "workspace:*",
+              "axios": "^1.10.0",
+              "pinia": "^3.0.3",
+              "vite": "^6.3.5",
+              "vue": "^3.5.17",
+              "vue-router": "^4.5.1"
+            },
+            "devDependencies": {
+              "@iconify/json": "^2.2.356",
+              "@monorepo/typescript-config": "workspace:*",
+              "@monorepo/vitest-config": "workspace:*",
+              "@tailwindcss/vite": "^4.1.11",
+              "@types/node": "^22.0.0",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "@vue/tsconfig": "^0.5.1",
+              "commitlint-config-cz": "^0.13.3",
+              "cz-git": "^1.11.2",
+              "czg": "^1.11.2",
+              "daisyui": "5.0.0",
+              "eslint": "^9.30.1",
+              "eslint-plugin-format": "^1.0.1",
+              "husky": "^9.1.7",
+              "jsdom": "^25.0.1",
+              "lint-staged": "^15.5.2",
+              "rollup-plugin-visualizer": "^5.14.0",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "unplugin-icons": "^22.1.0",
+              "unplugin-vue-components": "^28.8.0",
+              "vite-plugin-compression": "^0.5.1",
+              "vitest": "^2.1.8",
+              "vue-tsc": "^2.1.10"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 8,
+              "devDependencies": 27,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "dev": "vite",
+              "build": "vite build",
+              "build:type-check": "vue-tsc --noEmit && vite build",
+              "preview": "vite preview",
+              "lint": "eslint .",
+              "lint:fix": "eslint . --fix",
+              "type-check": "vue-tsc --noEmit",
+              "test": "vitest",
+              "test:run": "vitest run",
+              "test:watch": "vitest watch",
+              "test:coverage": "vitest run --coverage",
+              "test:ui": "vitest --ui",
+              "cz": "czg"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          },
+          {
+            "name": "project-development-environment--daysi-ui",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\apps\\site-template\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@monorepo/styles": "workspace:*",
+              "@monorepo/vite-config": "workspace:^",
+              "@shared/tailwind-config": "workspace:*",
+              "axios": "^1.10.0",
+              "pinia": "^3.0.3",
+              "vite": "^6.3.5",
+              "vue": "^3.5.17",
+              "vue-router": "^4.5.1"
+            },
+            "devDependencies": {
+              "@iconify/json": "^2.2.356",
+              "@monorepo/typescript-config": "workspace:*",
+              "@monorepo/vitest-config": "workspace:*",
+              "@tailwindcss/vite": "^4.1.11",
+              "@types/node": "^22.0.0",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "@vue/tsconfig": "^0.5.1",
+              "commitlint-config-cz": "^0.13.3",
+              "cz-git": "^1.11.2",
+              "czg": "^1.11.2",
+              "daisyui": "5.0.0",
+              "eslint": "^9.30.1",
+              "eslint-plugin-format": "^1.0.1",
+              "husky": "^9.1.7",
+              "jsdom": "^25.0.1",
+              "lint-staged": "^15.5.2",
+              "rollup-plugin-visualizer": "^5.14.0",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "unplugin-vue-components": "^28.8.0",
+              "vite-plugin-compression": "^0.5.1",
+              "vitest": "^2.1.8",
+              "vue-tsc": "^2.1.10"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 8,
+              "devDependencies": 26,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "dev": "vite",
+              "build": "vite build",
+              "build:type-check": "vue-tsc --noEmit && vite build",
+              "preview": "vite preview",
+              "lint": "eslint .",
+              "lint:fix": "eslint . --fix",
+              "type-check": "vue-tsc --noEmit",
+              "test": "vitest",
+              "test:run": "vitest run",
+              "test:watch": "vitest watch",
+              "test:coverage": "vitest run --coverage",
+              "test:ui": "vitest --ui",
+              "cz": "czg"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          },
+          {
+            "name": "Cirq",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\apps\\cirq\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@monorepo/styles": "workspace:*",
+              "@monorepo/vite-config": "workspace:^",
+              "@shared/tailwind-config": "workspace:*",
+              "@supabase/supabase-js": "^2.50.3",
+              "axios": "^1.10.0",
+              "pinia": "^3.0.3",
+              "vite": "^6.3.5",
+              "vue": "^3.5.17",
+              "vue-router": "^4.5.1"
+            },
+            "devDependencies": {
+              "@iconify/json": "^2.2.356",
+              "@monorepo/typescript-config": "workspace:*",
+              "@monorepo/vitest-config": "workspace:*",
+              "@tailwindcss/vite": "^4.1.11",
+              "@types/node": "^22.0.0",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "@vue/tsconfig": "^0.5.1",
+              "commitlint-config-cz": "^0.13.3",
+              "cz-git": "^1.11.2",
+              "czg": "^1.11.2",
+              "daisyui": "5.0.0",
+              "eslint": "^9.30.1",
+              "eslint-plugin-format": "^1.0.1",
+              "husky": "^9.1.7",
+              "jsdom": "^25.0.1",
+              "lint-staged": "^15.5.2",
+              "rollup-plugin-visualizer": "^5.14.0",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "unplugin-icons": "^22.1.0",
+              "unplugin-vue-components": "^28.8.0",
+              "vite-plugin-compression": "^0.5.1",
+              "vitest": "^2.1.8",
+              "vue-tsc": "^2.1.10"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 9,
+              "devDependencies": 27,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "dev": "vite",
+              "build": "vite build",
+              "build:type-check": "vue-tsc --noEmit && vite build",
+              "preview": "vite preview",
+              "lint": "eslint .",
+              "lint:fix": "eslint . --fix",
+              "type-check": "vue-tsc --noEmit",
+              "test": "vitest",
+              "test:run": "vitest run",
+              "test:watch": "vitest watch",
+              "test:coverage": "vitest run --coverage",
+              "test:ui": "vitest --ui",
+              "cz": "czg"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          },
+          {
+            "name": "gcn-website",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\apps\\gcn-website\\package.json",
+            "version": "0.0.1",
+            "dependencies": {
+              "@monorepo/styles": "workspace:*",
+              "@monorepo/vite-config": "workspace:^",
+              "@shared/tailwind-config": "workspace:*",
+              "pinia": "^3.0.3",
+              "vue": "^3.5.17",
+              "vue-router": "^4.5.1"
+            },
+            "devDependencies": {
+              "@monorepo/typescript-config": "workspace:*",
+              "@monorepo/vitest-config": "workspace:*",
+              "@typescript-eslint/eslint-plugin": "^5.62.0",
+              "@typescript-eslint/parser": "^5.62.0",
+              "@types/node": "^22.0.0",
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "@vicons/antd": "^0.11.0",
+              "@vicons/utils": "^0.1.4",
+              "@vue/compiler-sfc": "^3.5.17",
+              "@vue/tsconfig": "^0.5.1",
+              "autoprefixer": "^10.4.21",
+              "commitizen": "^4.3.1",
+              "cz-conventional-changelog": "^3.3.0",
+              "cz-customizable": "^6.9.2",
+              "eslint-config-airbnb-base": "^15.0.0",
+              "eslint-config-prettier": "^8.10.0",
+              "eslint-import-resolver-alias": "^1.1.2",
+              "eslint-plugin-import": "^2.32.0",
+              "eslint-plugin-prettier": "^4.2.1",
+              "eslint-plugin-vue": "^8.7.1",
+              "jsdom": "^25.0.1",
+              "mrm": "^3.0.10",
+              "naive-ui": "^2.42.0",
+              "postcss": "^8.5.6",
+              "sass": "^1.89.2",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "vite": "^6.3.5",
+              "vite-plugin-vue-setup-extend": "^0.3.0",
+              "vitest": "^2.1.8",
+              "vue-tsc": "^2.1.10"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 6,
+              "devDependencies": 33,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "dev": "vite",
+              "build": "vue-tsc --noEmit && vite build",
+              "build:type-check": "vue-tsc --noEmit && vite build",
+              "serve": "vite preview",
+              "lint": "eslint src --fix --ext .ts,.tsx,.vue,.js,.jsx",
+              "prettier": "prettier --write .",
+              "type-check": "vue-tsc --noEmit",
+              "test": "vitest",
+              "test:run": "vitest run",
+              "test:watch": "vitest watch",
+              "test:coverage": "vitest run --coverage",
+              "test:ui": "vitest --ui",
+              "prepare": "husky install"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          },
+          {
+            "name": "project--basketball-stats-app",
+            "path": "C:\\Users\\Eric\\Desktop\\web\\projects\\packages\\apps\\basketball-score\\package.json",
+            "version": "1.0.0",
+            "dependencies": {
+              "@monorepo/styles": "workspace:*",
+              "@monorepo/vite-config": "workspace:^",
+              "@shared/tailwind-config": "workspace:*",
+              "@supabase/supabase-js": "^2.50.3",
+              "axios": "^1.10.0",
+              "nanoid": "^5.1.5",
+              "pinia": "^3.0.3",
+              "vite": "^6.3.5",
+              "vue": "^3.5.17",
+              "vue-router": "^4.5.1"
+            },
+            "devDependencies": {
+              "@iconify/json": "^2.2.356",
+              "@monorepo/typescript-config": "workspace:*",
+              "@monorepo/vitest-config": "workspace:*",
+              "@tailwindcss/vite": "^4.1.11",
+              "@types/node": "^22.0.0",
+              "@vitejs/plugin-vue": "^5.2.4",
+              "@vitest/coverage-v8": "^2.1.8",
+              "@vue/test-utils": "^2.4.6",
+              "@vue/tsconfig": "^0.5.1",
+              "czg": "^1.11.2",
+              "daisyui": "5.0.0",
+              "eslint": "^9.30.1",
+              "eslint-plugin-format": "^1.0.1",
+              "husky": "^9.1.7",
+              "jsdom": "^25.0.1",
+              "lint-staged": "^15.5.2",
+              "rollup-plugin-visualizer": "^5.14.0",
+              "tailwindcss": "^4.1.11",
+              "typescript": "^5.8.3",
+              "unplugin-auto-import": "^19.3.0",
+              "unplugin-vue-components": "^28.8.0",
+              "vite-plugin-compression": "^0.5.1",
+              "vite-plugin-vue-devtools": "^7.7.7",
+              "vitest": "^2.1.8",
+              "vue-tsc": "^2.1.10"
+            },
+            "peerDependencies": {},
+            "dependencyCount": {
+              "dependencies": 10,
+              "devDependencies": 25,
+              "peerDependencies": 0
+            },
+            "scripts": {
+              "dev": "vite",
+              "build": "vite build",
+              "build:type-check": "vue-tsc --noEmit && vite build",
+              "preview": "vite preview",
+              "lint": "eslint .",
+              "lint:fix": "eslint . --fix",
+              "type-check": "vue-tsc --noEmit",
+              "test": "vitest",
+              "test:run": "vitest run",
+              "test:watch": "vitest watch",
+              "test:coverage": "vitest run --coverage",
+              "test:ui": "vitest --ui",
+              "cz": "czg"
+            },
+            "nodeModulesExists": true,
+            "lockFileExists": true
+          }
+        ],
+        "globalDependencies": {
+          "@antfu/eslint-config": {
+            "versions": [
+              "^4.16.2"
+            ],
+            "projects": [
+              "projects-monorepo"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@commitlint/cli": {
+            "versions": [
+              "^19.8.1"
+            ],
+            "projects": [
+              "projects-monorepo"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@commitlint/config-conventional": {
+            "versions": [
+              "^19.8.1"
+            ],
+            "projects": [
+              "projects-monorepo"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@tailwindcss/vite": {
+            "versions": [
+              "^4.1.11"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "@vitejs/plugin-vue": {
+            "versions": [
+              "^5.2.4"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/docs",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "chalk": {
+            "versions": [
+              "^5.3.0"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/performance-monitor"
+            ],
+            "types": [
+              "devDependency",
+              "dependency"
+            ],
+            "usageCount": 2
+          },
+          "commitlint-config-cz": {
+            "versions": [
+              "^0.13.3"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 4
+          },
+          "cross-env": {
+            "versions": [
+              "^7.0.3"
+            ],
+            "projects": [
+              "projects-monorepo"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "cz-git": {
+            "versions": [
+              "^1.11.2"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 4
+          },
+          "czg": {
+            "versions": [
+              "^1.11.2"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "daisyui": {
+            "versions": [
+              "^5.0.46",
+              "5.0.0"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/styles",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "eslint": {
+            "versions": [
+              "^9.30.1"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "eslint-plugin-format": {
+            "versions": [
+              "^1.0.1"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "glob": {
+            "versions": [
+              "^11.0.3",
+              "^10.3.10"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/performance-monitor"
+            ],
+            "types": [
+              "devDependency",
+              "dependency"
+            ],
+            "usageCount": 2
+          },
+          "husky": {
+            "versions": [
+              "^9.1.7"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "lint-staged": {
+            "versions": [
+              "^15.5.2"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "prettier": {
+            "versions": [
+              "^2.8.8"
+            ],
+            "projects": [
+              "projects-monorepo"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "rollup-plugin-visualizer": {
+            "versions": [
+              "^5.14.0"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/vite-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency",
+              "dependency"
+            ],
+            "usageCount": 6
+          },
+          "tailwindcss": {
+            "versions": [
+              "^4.1.11"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/styles",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 7
+          },
+          "typescript": {
+            "versions": [
+              "^5.8.3"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/typescript-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 7
+          },
+          "unplugin-auto-import": {
+            "versions": [
+              "^19.3.0"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "unplugin-vue-components": {
+            "versions": [
+              "^28.8.0"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "vite": {
+            "versions": [
+              "^6.3.5"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency",
+              "dependency"
+            ],
+            "usageCount": 6
+          },
+          "vite-plugin-compression": {
+            "versions": [
+              "^0.5.1"
+            ],
+            "projects": [
+              "projects-monorepo",
+              "@monorepo/vite-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency",
+              "dependency"
+            ],
+            "usageCount": 6
+          },
+          "@vitest/coverage-v8": {
+            "versions": [
+              "^2.1.8"
+            ],
+            "projects": [
+              "@monorepo/vitest-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "@vue/test-utils": {
+            "versions": [
+              "^2.4.6"
+            ],
+            "projects": [
+              "@monorepo/vitest-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "jsdom": {
+            "versions": [
+              "^25.0.1"
+            ],
+            "projects": [
+              "@monorepo/vitest-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "vitest": {
+            "versions": [
+              "^2.1.8"
+            ],
+            "projects": [
+              "@monorepo/vitest-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "@types/node": {
+            "versions": [
+              "^22.0.0"
+            ],
+            "projects": [
+              "@monorepo/typescript-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "@vue/tsconfig": {
+            "versions": [
+              "^0.5.1"
+            ],
+            "projects": [
+              "@monorepo/typescript-config",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency",
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "deepmerge": {
+            "versions": [
+              "^4.3.1"
+            ],
+            "projects": [
+              "@shared/tailwind-config"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 1
+          },
+          "fast-glob": {
+            "versions": [
+              "^3.3.2"
+            ],
+            "projects": [
+              "@monorepo/performance-monitor"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 1
+          },
+          "ora": {
+            "versions": [
+              "^8.0.1"
+            ],
+            "projects": [
+              "@monorepo/performance-monitor"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 1
+          },
+          "@monorepo/typescript-config": {
+            "versions": [
+              "workspace:*"
+            ],
+            "projects": [
+              "@monorepo/performance-monitor",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 6
+          },
+          "vue": {
+            "versions": [
+              "^3.5.17"
+            ],
+            "projects": [
+              "@monorepo/docs",
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 6
+          },
+          "@monorepo/dependency-versions": {
+            "versions": [
+              "workspace:*"
+            ],
+            "projects": [
+              "@monorepo/docs"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "markdown-it": {
+            "versions": [
+              "^14.1.0"
+            ],
+            "projects": [
+              "@monorepo/docs"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "markdown-it-container": {
+            "versions": [
+              "^4.0.0"
+            ],
+            "projects": [
+              "@monorepo/docs"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "shiki": {
+            "versions": [
+              "^1.26.0"
+            ],
+            "projects": [
+              "@monorepo/docs"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "vitepress": {
+            "versions": [
+              "^1.5.0"
+            ],
+            "projects": [
+              "@monorepo/docs"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@monorepo/styles": {
+            "versions": [
+              "workspace:*"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 5
+          },
+          "@monorepo/vite-config": {
+            "versions": [
+              "workspace:^"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 5
+          },
+          "@shared/tailwind-config": {
+            "versions": [
+              "workspace:*"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 5
+          },
+          "axios": {
+            "versions": [
+              "^1.10.0"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 4
+          },
+          "pinia": {
+            "versions": [
+              "^3.0.3"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 5
+          },
+          "vue-router": {
+            "versions": [
+              "^4.5.1"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 5
+          },
+          "@iconify/json": {
+            "versions": [
+              "^2.2.356"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 4
+          },
+          "@monorepo/vitest-config": {
+            "versions": [
+              "workspace:*"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "unplugin-icons": {
+            "versions": [
+              "^22.1.0"
+            ],
+            "projects": [
+              "dflm-website",
+              "Cirq"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 2
+          },
+          "vue-tsc": {
+            "versions": [
+              "^2.1.10"
+            ],
+            "projects": [
+              "dflm-website",
+              "project-development-environment--daysi-ui",
+              "Cirq",
+              "gcn-website",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 5
+          },
+          "@supabase/supabase-js": {
+            "versions": [
+              "^2.50.3"
+            ],
+            "projects": [
+              "Cirq",
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 2
+          },
+          "@typescript-eslint/eslint-plugin": {
+            "versions": [
+              "^5.62.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@typescript-eslint/parser": {
+            "versions": [
+              "^5.62.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@vicons/antd": {
+            "versions": [
+              "^0.11.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@vicons/utils": {
+            "versions": [
+              "^0.1.4"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "@vue/compiler-sfc": {
+            "versions": [
+              "^3.5.17"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "autoprefixer": {
+            "versions": [
+              "^10.4.21"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "commitizen": {
+            "versions": [
+              "^4.3.1"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "cz-conventional-changelog": {
+            "versions": [
+              "^3.3.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "cz-customizable": {
+            "versions": [
+              "^6.9.2"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-config-airbnb-base": {
+            "versions": [
+              "^15.0.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-config-prettier": {
+            "versions": [
+              "^8.10.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-import-resolver-alias": {
+            "versions": [
+              "^1.1.2"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-plugin-import": {
+            "versions": [
+              "^2.32.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-plugin-prettier": {
+            "versions": [
+              "^4.2.1"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "eslint-plugin-vue": {
+            "versions": [
+              "^8.7.1"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "mrm": {
+            "versions": [
+              "^3.0.10"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "naive-ui": {
+            "versions": [
+              "^2.42.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "postcss": {
+            "versions": [
+              "^8.5.6"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "sass": {
+            "versions": [
+              "^1.89.2"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "vite-plugin-vue-setup-extend": {
+            "versions": [
+              "^0.3.0"
+            ],
+            "projects": [
+              "gcn-website"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          },
+          "nanoid": {
+            "versions": [
+              "^5.1.5"
+            ],
+            "projects": [
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "dependency"
+            ],
+            "usageCount": 1
+          },
+          "vite-plugin-vue-devtools": {
+            "versions": [
+              "^7.7.7"
+            ],
+            "projects": [
+              "project--basketball-stats-app"
+            ],
+            "types": [
+              "devDependency"
+            ],
+            "usageCount": 1
+          }
+        },
+        "duplicates": [
+          {
+            "dependency": "tailwindcss",
+            "usageCount": 7,
+            "versions": [
+              "^4.1.11"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/styles",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "typescript",
+            "usageCount": 7,
+            "versions": [
+              "^5.8.3"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/typescript-config",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^5.8.3",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@vitejs/plugin-vue",
+            "usageCount": 6,
+            "versions": [
+              "^5.2.4"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/docs",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^5.2.4",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "daisyui",
+            "usageCount": 6,
+            "versions": [
+              "^5.0.46",
+              "5.0.0"
+            ],
+            "hasVersionConflict": true,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^5.0.46",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/styles",
+                "version": "^5.0.46",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "5.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "5.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "5.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "5.0.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "rollup-plugin-visualizer",
+            "usageCount": 6,
+            "versions": [
+              "^5.14.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^5.14.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/vite-config",
+                "version": "^5.14.0",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^5.14.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^5.14.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^5.14.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^5.14.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "unplugin-auto-import",
+            "usageCount": 6,
+            "versions": [
+              "^19.3.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^19.3.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vite",
+            "usageCount": 6,
+            "versions": [
+              "^6.3.5"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^6.3.5",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^6.3.5",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^6.3.5",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^6.3.5",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^6.3.5",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^6.3.5",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vite-plugin-compression",
+            "usageCount": 6,
+            "versions": [
+              "^0.5.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/vite-config",
+                "version": "^0.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@vitest/coverage-v8",
+            "usageCount": 6,
+            "versions": [
+              "^2.1.8"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/vitest-config",
+                "version": "^2.1.8",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@vue/test-utils",
+            "usageCount": 6,
+            "versions": [
+              "^2.4.6"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/vitest-config",
+                "version": "^2.4.6",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^2.4.6",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^2.4.6",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^2.4.6",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^2.4.6",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.4.6",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "jsdom",
+            "usageCount": 6,
+            "versions": [
+              "^25.0.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/vitest-config",
+                "version": "^25.0.1",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^25.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^25.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^25.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^25.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^25.0.1",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vitest",
+            "usageCount": 6,
+            "versions": [
+              "^2.1.8"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/vitest-config",
+                "version": "^2.1.8",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.1.8",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@types/node",
+            "usageCount": 6,
+            "versions": [
+              "^22.0.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/typescript-config",
+                "version": "^22.0.0",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^22.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^22.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^22.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^22.0.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^22.0.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@vue/tsconfig",
+            "usageCount": 6,
+            "versions": [
+              "^0.5.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/typescript-config",
+                "version": "^0.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^0.5.1",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@monorepo/typescript-config",
+            "usageCount": 6,
+            "versions": [
+              "workspace:*"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/performance-monitor",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "workspace:*",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vue",
+            "usageCount": 6,
+            "versions": [
+              "^3.5.17"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "@monorepo/docs",
+                "version": "^3.5.17",
+                "type": "dependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^3.5.17",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^3.5.17",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^3.5.17",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^3.5.17",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^3.5.17",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@tailwindcss/vite",
+            "usageCount": 5,
+            "versions": [
+              "^4.1.11"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^4.1.11",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "czg",
+            "usageCount": 5,
+            "versions": [
+              "^1.11.2"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "eslint",
+            "usageCount": 5,
+            "versions": [
+              "^9.30.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^9.30.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^9.30.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^9.30.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^9.30.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^9.30.1",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "eslint-plugin-format",
+            "usageCount": 5,
+            "versions": [
+              "^1.0.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^1.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^1.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^1.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^1.0.1",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^1.0.1",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "husky",
+            "usageCount": 5,
+            "versions": [
+              "^9.1.7"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^9.1.7",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^9.1.7",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^9.1.7",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^9.1.7",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^9.1.7",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "lint-staged",
+            "usageCount": 5,
+            "versions": [
+              "^15.5.2"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^15.5.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^15.5.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^15.5.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^15.5.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^15.5.2",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "unplugin-vue-components",
+            "usageCount": 5,
+            "versions": [
+              "^28.8.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^28.8.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^28.8.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^28.8.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^28.8.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^28.8.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@monorepo/styles",
+            "usageCount": 5,
+            "versions": [
+              "workspace:*"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "workspace:*",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@monorepo/vite-config",
+            "usageCount": 5,
+            "versions": [
+              "workspace:^"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "workspace:^",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "workspace:^",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "workspace:^",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "workspace:^",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "workspace:^",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@shared/tailwind-config",
+            "usageCount": 5,
+            "versions": [
+              "workspace:*"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "workspace:*",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "workspace:*",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "pinia",
+            "usageCount": 5,
+            "versions": [
+              "^3.0.3"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^3.0.3",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^3.0.3",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^3.0.3",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^3.0.3",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^3.0.3",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vue-router",
+            "usageCount": 5,
+            "versions": [
+              "^4.5.1"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^4.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^4.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^4.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^4.5.1",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^4.5.1",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@monorepo/vitest-config",
+            "usageCount": 5,
+            "versions": [
+              "workspace:*"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "workspace:*",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "workspace:*",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "vue-tsc",
+            "usageCount": 5,
+            "versions": [
+              "^2.1.10"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^2.1.10",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^2.1.10",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^2.1.10",
+                "type": "devDependency"
+              },
+              {
+                "project": "gcn-website",
+                "version": "^2.1.10",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.1.10",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "commitlint-config-cz",
+            "usageCount": 4,
+            "versions": [
+              "^0.13.3"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^0.13.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^0.13.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^0.13.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^0.13.3",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "cz-git",
+            "usageCount": 4,
+            "versions": [
+              "^1.11.2"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "dflm-website",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^1.11.2",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "axios",
+            "usageCount": 4,
+            "versions": [
+              "^1.10.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^1.10.0",
+                "type": "dependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^1.10.0",
+                "type": "dependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^1.10.0",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^1.10.0",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@iconify/json",
+            "usageCount": 4,
+            "versions": [
+              "^2.2.356"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^2.2.356",
+                "type": "devDependency"
+              },
+              {
+                "project": "project-development-environment--daysi-ui",
+                "version": "^2.2.356",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^2.2.356",
+                "type": "devDependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.2.356",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "chalk",
+            "usageCount": 2,
+            "versions": [
+              "^5.3.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^5.3.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/performance-monitor",
+                "version": "^5.3.0",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "glob",
+            "usageCount": 2,
+            "versions": [
+              "^11.0.3",
+              "^10.3.10"
+            ],
+            "hasVersionConflict": true,
+            "usages": [
+              {
+                "project": "projects-monorepo",
+                "version": "^11.0.3",
+                "type": "devDependency"
+              },
+              {
+                "project": "@monorepo/performance-monitor",
+                "version": "^10.3.10",
+                "type": "dependency"
+              }
+            ]
+          },
+          {
+            "dependency": "unplugin-icons",
+            "usageCount": 2,
+            "versions": [
+              "^22.1.0"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "dflm-website",
+                "version": "^22.1.0",
+                "type": "devDependency"
+              },
+              {
+                "project": "Cirq",
+                "version": "^22.1.0",
+                "type": "devDependency"
+              }
+            ]
+          },
+          {
+            "dependency": "@supabase/supabase-js",
+            "usageCount": 2,
+            "versions": [
+              "^2.50.3"
+            ],
+            "hasVersionConflict": false,
+            "usages": [
+              {
+                "project": "Cirq",
+                "version": "^2.50.3",
+                "type": "dependency"
+              },
+              {
+                "project": "project--basketball-stats-app",
+                "version": "^2.50.3",
+                "type": "dependency"
+              }
+            ]
+          }
+        ],
+        "versionConflicts": [
+          {
+            "dependency": "glob",
+            "versions": [
+              "^11.0.3",
+              "^10.3.10"
+            ],
+            "severity": "high"
+          },
+          {
+            "dependency": "daisyui",
+            "versions": [
+              "^5.0.46",
+              "5.0.0"
+            ],
+            "severity": "low"
+          }
+        ],
+        "healthScore": 30
+      },
+      "summary": {
+        "type": "workspace",
+        "totalProjects": 14,
+        "totalDependencies": 73,
+        "duplicateDependencies": 38,
+        "versionConflicts": 2,
+        "healthScore": 30,
+        "topDuplicates": [
+          {
+            "name": "tailwindcss",
+            "usageCount": 7,
+            "hasConflict": false
+          },
+          {
+            "name": "typescript",
+            "usageCount": 7,
+            "hasConflict": false
+          },
+          {
+            "name": "@vitejs/plugin-vue",
+            "usageCount": 6,
+            "hasConflict": false
+          },
+          {
+            "name": "daisyui",
+            "usageCount": 6,
+            "hasConflict": true
+          },
+          {
+            "name": "rollup-plugin-visualizer",
+            "usageCount": 6,
+            "hasConflict": false
+          }
+        ]
+      },
+      "recommendations": [
+        {
+          "type": "version-conflicts",
+          "priority": "high",
+          "message": "发现 1 个高危版本冲突，建议统一版本号",
+          "details": [
+            "glob"
+          ]
+        },
+        {
+          "type": "duplicates",
+          "priority": "medium",
+          "message": "发现 38 个重复依赖，建议提升到 workspace 根目录",
+          "details": [
+            "tailwindcss",
+            "typescript",
+            "@vitejs/plugin-vue",
+            "daisyui",
+            "rollup-plugin-visualizer"
+          ]
+        },
+        {
+          "type": "lock-files",
+          "priority": "medium",
+          "message": "8 个项目缺少锁文件，建议添加",
+          "details": [
+            "@monorepo/vite-config",
+            "@monorepo/vitest-config",
+            "@monorepo/typescript-config",
+            "@monorepo/styles",
+            "@shared/tailwind-config",
+            "@monorepo/performance-monitor",
+            "@monorepo/docs",
+            "@monorepo/dependency-versions"
+          ]
+        }
+      ]
+    },
+    "build": null,
+    "runtime": {
+      "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects",
+      "timestamp": "2025-07-09T13:37:27.802Z",
+      "analysis": {
+        "systemMetrics": {
+          "platform": "win32",
+          "nodeVersion": "v23.7.0",
+          "architecture": "x64",
+          "cpuCount": 24,
+          "totalMemory": 34182176768,
+          "freeMemory": 7830056960,
+          "loadAverage": [
+            0,
+            0,
+            0
+          ],
+          "uptime": 1672973.218,
+          "memoryUsagePercent": 77
+        },
+        "memoryUsage": {
+          "rss": 55488512,
+          "heapTotal": 12066816,
+          "heapUsed": 8620120,
+          "external": 1881776,
+          "arrayBuffers": 12075,
+          "heapUsagePercent": 71
+        },
+        "performanceConfig": {
+          "hasViteConfig": false,
+          "hasWebpackConfig": false,
+          "hasTsConfig": false,
+          "hasEslintConfig": true,
+          "hasTailwindConfig": false,
+          "hasPostcssConfig": false,
+          "hasVitestConfig": false,
+          "optimizationPotential": [
+            "ESLint配置存在，可以优化代码质量检查性能"
+          ]
+        }
+      },
+      "summary": {
+        "system": {
+          "platform": "win32",
+          "nodeVersion": "v23.7.0",
+          "cpuCount": 24,
+          "totalMemory": "31.83 GB",
+          "memoryUsage": "77%",
+          "loadAverage": "0.00"
+        },
+        "process": {
+          "heapUsed": "8.22 MB",
+          "heapTotal": "11.51 MB",
+          "heapUsage": "71%",
+          "rss": "52.92 MB"
+        },
+        "configuration": {
+          "buildTool": "None",
+          "typescript": false,
+          "linting": true,
+          "testing": false,
+          "styling": "Standard"
+        }
+      },
+      "recommendations": [
+        {
+          "type": "build-tool",
+          "priority": "medium",
+          "message": "缺少现代构建工具配置，建议使用 Vite 或 Webpack 优化构建性能"
+        }
+      ]
+    }
+  }
+}
