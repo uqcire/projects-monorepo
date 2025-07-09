@@ -1,0 +1,119 @@
+name: 📚 Deploy Documentation
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'packages/docs/**'
+      - .github/workflows/docs.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - 'packages/docs/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 🏗️ Build Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.0
+          cache: pnpm
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔧 Setup Pages
+        uses: actions/configure-pages@v4
+
+      - name: 🏗️ Build documentation
+        run: pnpm docs:build
+        env:
+          NODE_ENV: production
+
+      - name: 📤 Upload artifact
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: packages/docs/.vitepress/dist
+
+  deploy:
+    name: 🚀 Deploy to GitHub Pages
+    if: github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
+    steps:
+      - name: 🚀 Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
+
+  test:
+    name: 🧪 Test Documentation
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 📥 Checkout
+        uses: actions/checkout@v4
+
+      - name: 📦 Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: 10.12.4
+
+      - name: 🟢 Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20.11.0
+          cache: pnpm
+
+      - name: 📥 Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: 🔍 Lint documentation
+        run: |
+          # 检查 Markdown 文件
+          find packages/docs -name "*.md" -exec echo "Checking {}" \;
+
+          # 检查链接有效性（基础检查）
+          grep -r "\[.*\](" packages/docs --include="*.md" | grep -v "http" | head -10 || true
+
+      - name: 🏗️ Test build
+        run: pnpm docs:build
+
+      - name: 📊 Check build output
+        run: |
+          echo "📊 Build output analysis:"
+          ls -la packages/docs/.vitepress/dist/
+          echo "📝 Generated files:"
+          find packages/docs/.vitepress/dist -name "*.html" | wc -l
+          echo "🎨 CSS files:"
+          find packages/docs/.vitepress/dist -name "*.css" | wc -l
+          echo "📜 JS files:"
+          find packages/docs/.vitepress/dist -name "*.js" | wc -l

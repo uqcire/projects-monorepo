@@ -68,6 +68,11 @@ const projectSpecificVars = {
     VITE_APP_NAME: 'Site Template',
     VITE_APP_TITLE: '网站模板',
   },
+  'docs': {
+    VITE_APP_NAME: 'Monorepo Documentation',
+    VITE_APP_TITLE: '项目文档系统',
+    VITE_DOCS_BASE: '/projects-monorepo/',
+  },
 }
 
 // 项目路径映射
@@ -77,6 +82,7 @@ const projectPaths = {
   'cirq': 'packages/apps/cirq',
   'gcn-website': 'packages/apps/gcn-website',
   'site-template': 'packages/apps/site-template',
+  'docs': 'packages/docs',
 }
 
 // 解析命令行参数
@@ -121,6 +127,7 @@ function showHelp() {
   cirq                   联系人管理
   gcn-website           GCN 网站
   site-template         网站模板
+  docs                  文档系统
   all                   所有项目
 
 选项:

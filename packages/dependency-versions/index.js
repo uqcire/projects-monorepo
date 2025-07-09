@@ -49,6 +49,12 @@ export const devVersions = {
   // 代码质量
   'eslint-plugin-format': '^1.0.1',
 
+  // 文档工具
+  'vitepress': '^1.5.0',
+  'markdown-it': '^14.1.0',
+  'markdown-it-container': '^4.0.0',
+  'shiki': '^1.26.0',
+
   // Git 工具
   'husky': '^9.1.7',
   'lint-staged': '^15.5.2',
@@ -71,6 +77,7 @@ export const projectSpecificVersions = {
   '@monorepo/styles': 'workspace:*',
   '@monorepo/typescript-config': 'workspace:*',
   '@monorepo/vitest-config': 'workspace:*',
+  '@monorepo/docs': 'workspace:*',
 
   // Supabase (用于 basketball-score 和 cirq)
   '@supabase/supabase-js': '^2.50.3',

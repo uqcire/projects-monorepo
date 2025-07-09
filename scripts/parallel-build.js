@@ -56,6 +56,14 @@ const projects = [
     buildTime: 0,
     priority: 3, // 最低优先级
   },
+  {
+    name: 'docs',
+    path: 'packages/docs',
+    packageName: '@monorepo/docs',
+    dependencies: [],
+    buildTime: 0,
+    priority: 2, // 文档构建优先级
+  },
 ]
 
 // 解析命令行参数

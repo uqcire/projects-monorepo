@@ -64,6 +64,12 @@
     "build:test": "node scripts/test-build-scripts.js",
     "dev:test": "powershell -ExecutionPolicy Bypass -File scripts/test-dev-environment.ps1",
 
+    "// === 文档系统脚本 ===": "",
+    "docs:dev": "pnpm --filter @monorepo/docs dev",
+    "docs:build": "pnpm --filter @monorepo/docs build",
+    "docs:preview": "pnpm --filter @monorepo/docs preview",
+    "docs:serve": "pnpm --filter @monorepo/docs serve",
+
     "// === 预览和部署脚本 ===": "",
     "preview": "pnpm --filter \"packages/apps/*\" preview",
     "preview:parallel": "pnpm --filter \"packages/apps/*\" --parallel preview",
