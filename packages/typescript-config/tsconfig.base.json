@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Base TypeScript Config",
+  "compilerOptions": {
+
+    /* 高级 */
+    "incremental": true,
+    "tsBuildInfoFile": ".tsbuildinfo",
+    /* 语言和环境 */
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "resolveJsonModule": true,
+    "allowJs": true,
+    "checkJs": false,
+
+    /* 类型检查 */
+    "strict": true,
+    "strictBindCallApply": true,
+    "strictFunctionTypes": true,
+    "strictNullChecks": true,
+    "strictPropertyInitialization": true,
+    "exactOptionalPropertyTypes": false,
+    "allowSyntheticDefaultImports": true,
+    /* 模块系统 */
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "verbatimModuleSyntax": false,
+    "noFallthroughCasesInSwitch": true,
+
+    /* 完整性检查 */
+    "noImplicitAny": true,
+    "noImplicitReturns": true,
+    "noUnusedLocals": false,
+    "noUnusedParameters": false,
+    "noImplicitOverride": true,
+    "noUncheckedIndexedAccess": false,
+
+    "downlevelIteration": false,
+    "importHelpers": false,
+    /* 发射 */
+    "noEmit": true,
+    "removeComments": false,
+    "sourceMap": true,
+
+    /* 互操作约束 */
+    "isolatedModules": true,
+    "skipLibCheck": true,
+    "alwaysStrict": true,
+    "noImplicitThis": true,
+    "useUnknownInCatchVariables": true
+  },
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.turbo/**",
+    "**/.nuxt/**",
+    "**/.next/**",
+    "**/.vite/**",
+    "**/coverage/**"
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "$schema": "https://json.schemastore.org/tsconfig",
+  "display": "Vue TypeScript Config",
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    /* Vue 特定配置 */
+    "jsx": "preserve",
+    "jsxImportSource": "vue",
+
+    /* Vue 组合式 API */
+    "moduleDetection": "force",
+    /* 路径映射 */
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["src/*"],
+      "~/*": ["src/*"],
+      "#/*": ["types/*"]
+    },
+    "types": [
+      "node",
+      "vite/client"
+    ]
+  },
+  "include": [
+    "src/**/*.ts",
+    "src/**/*.d.ts",
+    "src/**/*.tsx",
+    "src/**/*.vue",
+    "src/**/*.js",
+    "src/**/*.jsx",
+    "components.d.ts",
+    "auto-imports.d.ts"
+  ],
+  "exclude": [
+    "**/node_modules/**",
+    "**/dist/**",
+    "**/build/**",
+    "**/.turbo/**",
+    "**/.nuxt/**",
+    "**/.next/**",
+    "**/.vite/**",
+    "**/coverage/**",
+    "**/cypress/**",
+    "**/tests/e2e/**"
+  ]
+}

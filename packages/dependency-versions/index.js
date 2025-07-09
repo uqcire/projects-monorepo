@@ -50,6 +50,10 @@ export const devVersions = {
   'commitlint-config-cz': '^0.13.3',
   'cz-git': '^1.11.2',
   'czg': '^1.11.2',
+
+  // TypeScript 类型定义
+  '@types/node': '^22.0.0',
+  '@vue/tsconfig': '^0.5.1',
 }
 
 // 项目特有的依赖版本
@@ -58,6 +62,7 @@ export const projectSpecificVersions = {
   '@shared/tailwind-config': 'workspace:*',
   '@shared/dependency-versions': 'workspace:*',
   '@monorepo/styles': 'workspace:*',
+  '@monorepo/typescript-config': 'workspace:*',
 
   // Supabase (用于 basketball-score 和 cirq)
   '@supabase/supabase-js': '^2.50.3',
@@ -76,7 +81,7 @@ export const projectSpecificVersions = {
   // TypeScript 相关
   '@typescript-eslint/eslint-plugin': '^5.62.0',
   '@typescript-eslint/parser': '^5.62.0',
-  'vue-tsc': '^0.2.3',
+  'vue-tsc': '^2.1.10',
 
   // 样式处理
   'sass': '^1.89.2',

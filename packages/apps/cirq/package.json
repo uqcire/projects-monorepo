@@ -8,9 +8,11 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "build:type-check": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
+    "type-check": "vue-tsc --noEmit",
     "cz": "czg"
   },
   "dependencies": {
@@ -26,8 +28,11 @@
   },
   "devDependencies": {
     "@iconify/json": "^2.2.356",
+    "@monorepo/typescript-config": "workspace:*",
     "@tailwindcss/vite": "^4.1.11",
+    "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^5.2.4",
+    "@vue/tsconfig": "^0.5.1",
     "commitlint-config-cz": "^0.13.3",
     "cz-git": "^1.11.2",
     "czg": "^1.11.2",
@@ -38,10 +43,12 @@
     "lint-staged": "^15.5.2",
     "rollup-plugin-visualizer": "^5.14.0",
     "tailwindcss": "^4.1.11",
+    "typescript": "^5.8.3",
     "unplugin-auto-import": "^19.3.0",
     "unplugin-icons": "^22.1.0",
     "unplugin-vue-components": "^28.8.0",
-    "vite-plugin-compression": "^0.5.1"
+    "vite-plugin-compression": "^0.5.1",
+    "vue-tsc": "^2.1.10"
   },
   "config": {
     "commitizen": {
@@ -50,8 +57,8 @@
     }
   },
   "lint-staged": {
-    "*.{js,vue}": [
-      "eslint --ext .js,.vue ."
+    "*.{js,vue,ts}": [
+      "eslint --ext .js,.vue,.ts ."
     ]
   }
 }

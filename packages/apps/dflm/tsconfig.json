@@ -6,12 +6,7 @@
       "@/*": [
         "src/*"
       ]
-    },
-    "types": [
-      "node",
-      "vite/client",
-      "naive-ui/volar"
-    ]
+    }
   },
   "include": [
     "src/**/*.ts",

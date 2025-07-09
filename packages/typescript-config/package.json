@@ -1,0 +1,29 @@
+{
+  "name": "@monorepo/typescript-config",
+  "type": "module",
+  "version": "1.0.0",
+  "description": "Shared TypeScript configurations for monorepo projects",
+  "license": "MIT",
+  "keywords": [
+    "typescript",
+    "tsconfig",
+    "monorepo",
+    "shared-config"
+  ],
+  "main": "index.js",
+  "files": [
+    "*.json",
+    "README.md",
+    "index.js"
+  ],
+  "peerDependencies": {
+    "typescript": ">=4.9.0"
+  },
+  "dependencies": {
+    "@types/node": "^22.0.0",
+    "@vue/tsconfig": "^0.5.1"
+  },
+  "devDependencies": {
+    "typescript": "^5.8.3"
+  }
+}
