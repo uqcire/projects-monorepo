@@ -1,9 +1,9 @@
 {
   "metadata": {
     "title": "性能对比报告",
-    "generated": "2025-07-09T15:35:01.505Z",
+    "generated": "2025-07-09T16:50:07.917Z",
     "version": "1.0.0",
-    "historicalDataPoints": 5
+    "historicalDataPoints": 0
   },
   "comparison": {
     "bundle": {
@@ -11,21 +11,15 @@
       "message": "当前无打包数据"
     },
     "dependencies": {
-      "status": "compared",
+      "status": "baseline",
       "current": 50,
-      "currentGrade": "C+",
-      "previous": 30,
-      "previousGrade": "D",
-      "change": 20,
-      "trend": "improved",
-      "recommendation": {
-        "type": "positive",
-        "message": "依赖健康度显著改善"
-      }
+      "grade": "C+",
+      "message": "首次测量，建立基准线"
     },
     "build": {
-      "status": "no-data",
-      "message": "当前无构建数据"
+      "status": "baseline",
+      "current": "687ms",
+      "message": "首次测量，建立基准线"
     }
   },
   "trends": {
@@ -34,45 +28,19 @@
       "dataPoints": 0
     },
     "dependencyHealth": {
-      "status": "available",
-      "dataPoints": 5,
-      "direction": "increasing",
-      "changeRate": 66.67,
-      "firstValue": 30,
-      "lastValue": 50,
-      "data": [
-        {
-          "timestamp": "2025-07-09T13:39:27.860Z",
-          "value": 30
-        },
-        {
-          "timestamp": "2025-07-09T13:39:35.691Z",
-          "value": 30
-        },
-        {
-          "timestamp": "2025-07-09T14:16:07.061Z",
-          "value": 30
-        },
-        {
-          "timestamp": "2025-07-09T15:14:12.016Z",
-          "value": 30
-        },
-        {
-          "timestamp": "2025-07-09T15:35:01.505Z",
-          "value": 50
-        }
-      ]
+      "status": "insufficient-data",
+      "dataPoints": 1
     },
     "buildTime": {
       "status": "insufficient-data",
-      "dataPoints": 0
+      "dataPoints": 1
     }
   },
   "insights": [
     {
-      "type": "positive",
-      "title": "依赖健康度趋势",
-      "message": "依赖健康度在过去的测量中持续改善"
+      "type": "info",
+      "title": "数据积累",
+      "message": "继续收集性能数据以获得更深入的趋势分析"
     }
   ]
 }
