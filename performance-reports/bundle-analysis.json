@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "打包分析报告",
-    "generated": "2025-07-09T17:18:33.509Z",
+    "generated": "2025-07-09T17:34:37.445Z",
     "projectPath": "C:\\Users\\Eric\\Desktop\\web\\projects",
     "version": "1.0.0"
   },
@@ -15,10 +15,26 @@
   "details": {
     "directories": {
       "nodeModules": {
-        "totalPackages": 23,
+        "totalPackages": 37,
         "analyzedPackages": 20,
         "totalSize": 0,
         "largestPackages": [
+          {
+            "package": "vue-tsc",
+            "size": "0 B"
+          },
+          {
+            "package": "vue-router",
+            "size": "0 B"
+          },
+          {
+            "package": "vue",
+            "size": "0 B"
+          },
+          {
+            "package": "vitest",
+            "size": "0 B"
+          },
           {
             "package": "vite-plugin-compression",
             "size": "0 B"
@@ -32,31 +48,15 @@
             "size": "0 B"
           },
           {
+            "package": "unplugin-icons",
+            "size": "0 B"
+          },
+          {
             "package": "unplugin-auto-import",
             "size": "0 B"
           },
           {
             "package": "typescript",
-            "size": "0 B"
-          },
-          {
-            "package": "tailwindcss",
-            "size": "0 B"
-          },
-          {
-            "package": "rollup-plugin-visualizer",
-            "size": "0 B"
-          },
-          {
-            "package": "prettier",
-            "size": "0 B"
-          },
-          {
-            "package": "lint-staged",
-            "size": "0 B"
-          },
-          {
-            "package": "husky",
             "size": "0 B"
           }
         ]

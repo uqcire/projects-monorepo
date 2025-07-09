@@ -1,7 +1,7 @@
 {
   "metadata": {
     "title": "性能对比报告",
-    "generated": "2025-07-09T17:18:33.512Z",
+    "generated": "2025-07-09T17:34:37.450Z",
     "version": "1.0.0",
     "historicalDataPoints": 0
   },
@@ -12,13 +12,13 @@
     },
     "dependencies": {
       "status": "baseline",
-      "current": 50,
+      "current": 56,
       "grade": "C+",
       "message": "首次测量，建立基准线"
     },
     "build": {
       "status": "baseline",
-      "current": "495ms",
+      "current": "779ms",
       "message": "首次测量，建立基准线"
     }
   },

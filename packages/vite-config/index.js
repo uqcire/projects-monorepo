@@ -142,6 +142,21 @@ export function createVueViteConfig(options = {}) {
           '.vue',
         ],
       },
+      // 优化依赖预构建
+      optimizeDeps: {
+        include: [
+          'vue',
+          'vue-router',
+          'pinia',
+          'axios',
+        ],
+        exclude: [
+          '@vueuse/core',
+        ],
+        esbuildOptions: {
+          target: 'es2022',
+        },
+      },
       server: {
         host: true,
         port: VITE_PORT,
@@ -149,20 +164,73 @@ export function createVueViteConfig(options = {}) {
         strictPort: false,
         https: false,
         cors: true,
+        // HMR 优化
+        hmr: {
+          overlay: true,
+        },
+        // 预热常用文件
+        warmup: {
+          clientFiles: [
+            './src/components/**/*.vue',
+            './src/views/**/*.vue',
+            './src/utils/**/*.js',
+            './src/stores/**/*.js',
+          ],
+        },
       },
       build: {
-        target: 'modules',
+        target: ['es2022', 'chrome87', 'firefox88', 'safari14'],
         outDir: 'dist',
-        sourcemap: false,
-        minify: 'esbuild', // 使用 esbuild 代替 terser，因为它是 Vite 的内置依赖
+        sourcemap: mode === 'development',
+        minify: 'esbuild',
+        // 优化包大小
+        cssCodeSplit: true,
+        chunkSizeWarningLimit: 1000,
         rollupOptions: {
           output: {
-            // 代码分割策略
-            manualChunks: {
-              vue: ['vue', 'vue-router', 'pinia'],
-              vendor: ['axios'],
+            // 改进的代码分割策略
+            manualChunks: (id) => {
+              // Vue 生态系统
+              if (id.includes('vue') || id.includes('pinia') || id.includes('vue-router')) {
+                return 'vue-vendor'
+              }
+              // UI 库
+              if (id.includes('naive-ui') || id.includes('@vueuse')) {
+                return 'ui-vendor'
+              }
+              // 工具库
+              if (id.includes('axios') || id.includes('lodash') || id.includes('dayjs')) {
+                return 'utils-vendor'
+              }
+              // 大型第三方库
+              if (id.includes('node_modules')) {
+                return 'vendor'
+              }
             },
+            // 优化文件命名
+            entryFileNames: 'assets/[name]-[hash].js',
+            chunkFileNames: 'assets/[name]-[hash].js',
+            assetFileNames: 'assets/[name]-[hash].[ext]',
           },
+          // 外部依赖优化
+          external: [],
+        },
+        // 启用实验性特性
+        reportCompressedSize: false, // 在大型项目中禁用以提升构建速度
+        // 构建缓存
+        emptyOutDir: true,
+      },
+      // 启用实验性特性
+      esbuild: {
+        // 移除 console 和 debugger（仅生产环境）
+        drop: mode === 'production' ? ['console', 'debugger'] : [],
+        legalComments: 'none',
+      },
+      // CSS 优化
+      css: {
+        devSourcemap: mode === 'development',
+        postcss: {
+          plugins: [],
         },
       },
     }
@@ -201,13 +269,75 @@ export function createVueWithIconsConfig(projectRoot) {
 }
 
 /**
- * 预设配置：开发模式配置
+ * 预设配置：开发环境 (快速启动，完整调试功能)
  */
 export function createDevelopmentConfig(projectRoot) {
   return createVueViteConfig({
     projectRoot,
     enableDevtools: true,
-    enableCompression: false,
-    enableVisualizer: false,
+    enableIcons: true,
+    enableAutoImport: true,
+    enableCompression: false, // 开发环境不需要压缩
+    enableVisualizer: false, // 开发环境不需要分析
+  })
+}
+
+/**
+ * 预设配置：高性能生产构建
+ */
+export function createOptimizedProductionConfig(projectRoot) {
+  return createVueViteConfig({
+    projectRoot,
+    enableIcons: true,
+    enableAutoImport: true,
+    enableCompression: true,
+    enableVisualizer: true,
+    customConfig: {
+      build: {
+        // 生产环境特定优化
+        minify: 'esbuild',
+        sourcemap: false,
+        reportCompressedSize: false,
+        rollupOptions: {
+          output: {
+            // 更激进的代码分割
+            manualChunks: (id) => {
+              // 核心框架
+              if (id.includes('vue/') && !id.includes('node_modules')) {
+                return 'framework'
+              }
+              if (id.includes('vue-router') || id.includes('pinia')) {
+                return 'store'
+              }
+              // 图标库单独分包
+              if (id.includes('@iconify') || id.includes('unplugin-icons')) {
+                return 'icons'
+              }
+              // CSS 框架
+              if (id.includes('tailwindcss') || id.includes('daisyui')) {
+                return 'styles'
+              }
+              // 工具库
+              if (id.includes('axios') || id.includes('lodash') || id.includes('date-fns')) {
+                return 'utils'
+              }
+              // 其他第三方库
+              if (id.includes('node_modules')) {
+                const chunks = id.split('node_modules/')[1].split('/')[0]
+                return `vendor-${chunks}`
+              }
+            },
+          },
+        },
+      },
+      // 生产环境 esbuild 优化
+      esbuild: {
+        drop: ['console', 'debugger'],
+        minifyIdentifiers: true,
+        minifySyntax: true,
+        minifyWhitespace: true,
+        treeShaking: true,
+      },
+    },
   })
 }
