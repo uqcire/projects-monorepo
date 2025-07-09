@@ -39,6 +39,13 @@ export const devVersions = {
   'unplugin-vue-components': '^28.8.0',
   'unplugin-icons': '^22.1.0',
 
+  // 测试框架
+  'vitest': '^2.1.8',
+  '@vitest/coverage-v8': '^2.1.8',
+  '@vue/test-utils': '^2.4.6',
+  'jsdom': '^25.0.1',
+  'happy-dom': '^15.11.6',
+
   // 代码质量
   'eslint-plugin-format': '^1.0.1',
 
@@ -63,6 +70,7 @@ export const projectSpecificVersions = {
   '@shared/dependency-versions': 'workspace:*',
   '@monorepo/styles': 'workspace:*',
   '@monorepo/typescript-config': 'workspace:*',
+  '@monorepo/vitest-config': 'workspace:*',
 
   // Supabase (用于 basketball-score 和 cirq)
   '@supabase/supabase-js': '^2.50.3',

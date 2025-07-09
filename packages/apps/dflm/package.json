@@ -13,6 +13,11 @@
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",
     "type-check": "vue-tsc --noEmit",
+    "test": "vitest",
+    "test:run": "vitest run",
+    "test:watch": "vitest watch",
+    "test:coverage": "vitest run --coverage",
+    "test:ui": "vitest --ui",
     "cz": "czg"
   },
   "dependencies": {
@@ -28,9 +33,12 @@
   "devDependencies": {
     "@iconify/json": "^2.2.356",
     "@monorepo/typescript-config": "workspace:*",
+    "@monorepo/vitest-config": "workspace:*",
     "@tailwindcss/vite": "^4.1.11",
     "@types/node": "^22.0.0",
     "@vitejs/plugin-vue": "^5.2.4",
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
     "@vue/tsconfig": "^0.5.1",
     "commitlint-config-cz": "^0.13.3",
     "cz-git": "^1.11.2",
@@ -39,6 +47,7 @@
     "eslint": "^9.30.1",
     "eslint-plugin-format": "^1.0.1",
     "husky": "^9.1.7",
+    "jsdom": "^25.0.1",
     "lint-staged": "^15.5.2",
     "rollup-plugin-visualizer": "^5.14.0",
     "tailwindcss": "^4.1.11",
@@ -47,6 +56,7 @@
     "unplugin-icons": "^22.1.0",
     "unplugin-vue-components": "^28.8.0",
     "vite-plugin-compression": "^0.5.1",
+    "vitest": "^2.1.8",
     "vue-tsc": "^2.1.10"
   },
   "config": {
@@ -57,7 +67,8 @@
   },
   "lint-staged": {
     "*.{js,vue,ts}": [
-      "eslint --ext .js,.vue,.ts ."
+      "eslint --ext .js,.vue,.ts .",
+      "vitest run --reporter=verbose --run"
     ]
   }
 }

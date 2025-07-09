@@ -1,0 +1,47 @@
+{
+  "name": "@monorepo/vitest-config",
+  "version": "1.0.0",
+  "description": "共享的 Vitest 测试配置包",
+  "type": "module",
+  "main": "index.js",
+  "exports": {
+    ".": "./index.js",
+    "./vitest.config.base.js": "./vitest.config.base.js",
+    "./vitest.config.vue.js": "./vitest.config.vue.js",
+    "./vitest.config.node.js": "./vitest.config.node.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "*.js",
+    "*.json",
+    "README.md"
+  ],
+  "keywords": [
+    "vitest",
+    "testing",
+    "monorepo",
+    "vue",
+    "typescript",
+    "coverage"
+  ],
+  "dependencies": {
+    "@vitest/coverage-v8": "^2.1.8",
+    "@vue/test-utils": "^2.4.6",
+    "jsdom": "^25.0.1",
+    "vitest": "^2.1.8"
+  },
+  "peerDependencies": {
+    "vue": ">=3.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/uqcire/projects-monorepo.git",
+    "directory": "packages/vitest-config"
+  },
+  "bugs": {
+    "url": "https://github.com/uqcire/projects-monorepo/issues"
+  },
+  "homepage": "https://github.com/uqcire/projects-monorepo#readme",
+  "author": "Eric",
+  "license": "MIT"
+}

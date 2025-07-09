@@ -1,0 +1,67 @@
+{
+  "timestamp": "2025-07-09T04:42:58.931Z",
+  "results": {
+    "configPackage": {
+      "package.json": true,
+      "vitest.config.base.js": true,
+      "vitest.config.vue.js": true,
+      "vitest.config.node.js": true,
+      "index.js": true,
+      "README.md": true
+    },
+    "projectConfigs": {
+      "dflm": {
+        "vitest.config.js": true,
+        "package.json 包含 @monorepo/vitest-config": true,
+        "package.json 包含 vitest": true,
+        "package.json 包含测试脚本": true
+      },
+      "basketball-score": {
+        "vitest.config.js": true,
+        "package.json 包含 @monorepo/vitest-config": true,
+        "package.json 包含 vitest": true,
+        "package.json 包含测试脚本": true
+      },
+      "cirq": {
+        "vitest.config.js": true,
+        "package.json 包含 @monorepo/vitest-config": true,
+        "package.json 包含 vitest": true,
+        "package.json 包含测试脚本": true
+      },
+      "gcn-website": {
+        "vitest.config.js": true,
+        "package.json 包含 @monorepo/vitest-config": true,
+        "package.json 包含 vitest": true,
+        "package.json 包含测试脚本": true
+      },
+      "site-template": {
+        "vitest.config.js": true,
+        "package.json 包含 @monorepo/vitest-config": true,
+        "package.json 包含 vitest": true,
+        "package.json 包含测试脚本": true
+      }
+    },
+    "testExecution": {
+      "dflm": "FAILED",
+      "basketball-score": "FAILED",
+      "cirq": "FAILED",
+      "gcn-website": "FAILED",
+      "site-template": "FAILED"
+    },
+    "coverage": {
+      "dflm": "FAILED",
+      "basketball-score": "FAILED",
+      "cirq": "FAILED",
+      "gcn-website": "FAILED",
+      "site-template": "FAILED"
+    },
+    "summary": {}
+  },
+  "summary": {
+    "configPackage": "6/6",
+    "projectConfigs": "20/20",
+    "testExecution": "0/5",
+    "coverage": "0/5",
+    "overallSuccess": false
+  }
+}
